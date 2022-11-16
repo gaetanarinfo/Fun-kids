@@ -11,7 +11,7 @@
         </h2>
 
         <div class="book">
-          <img src="<?= $static_img ?>livre.png">
+          <img src="../../../public/img/livre.png">
         </div>
 
         <h3>
@@ -37,59 +37,59 @@
         <div class="aide_grid">
 
           <div>
-            <img src="<?= $static_img ?>level/ladder_small.png" alt="">
+            <img src="../../../public/img/level/ladder_small.png" alt="">
             <p>Echelle</p>
             <p>Permet de grimper de Case en Case.</p>
           </div>
 
           <div>
-            <img src="<?= $static_img ?>level/potion_1.png" alt="">
+            <img src="../../../public/img/level/potion_1.png" alt="">
             <p style="margin-top: 40px;">Potion</p>
             <p>Permet de sauter un grand nombre de Case.</p>
           </div>
 
           <div>
-            <img src="<?= $static_img ?>level/monstre_1.png" alt="">
+            <img src="../../../public/img/level/monstre_1.png" alt="">
             <p style="margin-top: 40px;">Monstre</p>
             <p>Ce monstre fait descendre de quelque .</p>
           </div>
 
           <div>
-            <img src="<?= $static_img ?>level/bombe.png" alt="">
+            <img src="../../../public/img/level/bombe.png" alt="">
             <p style="margin-top: 40px;">Bombe</p>
             <p>Une bombe qui fait descendre de quelque Case.</p>
           </div>
 
           <div>
-            <img src="<?= $static_img ?>level/chest_close.png" alt="">
+            <img src="../../../public/img/level/chest_close.png" alt="">
 
             <p style="margin-top: 40px;">Coffre</p>
             <p>Un coffre qui permet de gagner 2 lingots.</p>
           </div>
 
           <div>
-            <img src="<?= $static_img ?>level/lingo_1.png" alt="">
+            <img src="../../../public/img/level/lingo_1.png" alt="">
 
             <p style="margin-top: 40px;">L'ingot</p>
             <p>L'ingot en cours de dev.</p>
           </div>
 
           <div>
-            <img src="<?= $static_img ?>level/coin.png" alt="">
+            <img src="../../../public/img/level/coin.png" alt="">
 
             <p style="margin-top: 40px;">Pièce d'or</p>
             <p>Les pièces d'or te permettent de passer les niveaux.</p>
           </div>
 
           <div>
-            <img src="<?= $static_img ?>level/bambou.png" alt="" style="width: 35px;min-height: auto;">
+            <img src="../../../public/img/level/bambou.png" alt="" style="width: 35px;min-height: auto;">
 
             <p style="margin-top: 40px;">Bambou</p>
             <p>En cours de dev.</p>
           </div>
 
           <div>
-            <img src="<?= $static_img ?>level/rubis.png" alt="" style="width: 35px;min-height: auto;">
+            <img src="../../../public/img/level/rubis.png" alt="" style="width: 35px;min-height: auto;">
 
             <p style="margin-top: 40px;">Rubis</p>
             <p>En cours de dev.</p>

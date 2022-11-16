@@ -5,11 +5,11 @@
     <h2>
       La boutique
       <span id="close_shop" class="close_shop">
-        <img src="<?= $static_img ?>/close.png">
+        <img src="../../../public/img/close.png">
       </span>
     </h2>
 
-    <div class="body">
+    <!--<div class="body">
 
       <div class="login_shop">
 
@@ -110,7 +110,7 @@
 
       </div>
 
-    </div>
+    </div>-->
 
   </div>
 

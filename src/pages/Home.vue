@@ -1,6 +1,6 @@
 <template>
 
-  <q-page>
+  <div id="home">
 
     <!-- Loading -->
     <loading />
@@ -8,20 +8,25 @@
     <!-- Menu -->
     <menuComponent />
 
+    <!-- New game -->
+    <new_game />
+
     <!-- Login game -->
     <login_game />
 
     <!-- Option -->
-    <optionComponent />
+    <!-- <optionComponent />-->
 
     <!-- Bug -->
-    <bug />
+    <!-- <bug />-->
 
     <!-- Contact -->
     <contact />
 
     <!-- Aide -->
     <aide />
+
+    <copyright />
 
     <!-- Son Ambiance -->
     <audio id="sound_1" loop volume="1">
@@ -33,7 +38,7 @@
       <source src="../../public/son/clic-1.mp3" type="audio/mpeg">
     </audio>
 
-  </q-page>
+  </div>
 
 </template>
 
@@ -42,21 +47,25 @@ import { defineComponent } from 'vue'
 import loading from '../components/home/loading.vue'
 import menuComponent from '../components/home/menu.vue'
 import login_game from '../components/home/login_game.vue'
+import new_game from '../components/home/new_game.vue'
 import optionComponent from '../components/home/option.vue'
 import bug from '../components/home/bug.vue'
 import contact from '../components/home/contact.vue'
 import aide from '../components/home/aide.vue'
+import copyright from '../components/home/copyright.vue'
 
 export default defineComponent({
   name: 'HomePage',
   components: {
     loading,
     menuComponent,
+    new_game,
     login_game,
-    optionComponent,
-    bug,
+    // optionComponent,
+    // bug,
     contact,
     aide,
+    copyright
   },
   setup() {
 

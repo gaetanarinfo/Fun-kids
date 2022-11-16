@@ -1,14 +1,7 @@
 <template>
 
-  <div class="iframe_facebook">
-    <iframe
-      src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Ffunkids72&tabs=timeline&width=500&height=500&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=false&appId"
-      width="500" height="140" scrolling="no" frameborder="0" allowfullscreen="true"
-      allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
-  </div>
-
-  <div class="container copyright w-50">
-    <div class="row m-auto">
+  <div class="container copyright w-100">
+    <div class="row m-auto w-70">
       <div id="donate-button-container">
         <div id="donate-button"></div>
       </div>
@@ -21,19 +14,19 @@
         <span class="online"></span>
         En ligne <span class="numberPlayer">0</span>
         <span style="margin: 0 10px;"></span>
-        <span><img class="userRegisterPlayer" src="<?= $static_img ?>player.png" alt=""></span>
+        <span><img class="userRegisterPlayer" src="../../../public/img/player.png" alt=""></span>
         Inscrits
-        <?= count($countUserRegister) ?>
+        <span id="userRegisterPlayer">{{ countUserRegister }}</span>
       </p>
       <hr class="m-auto mt-3 mb-3 w-50">
-      <p class="m-0 p-0">Version
-        <?= $version ?> -
-        <?= $ua['name'] . " " . $ua['version']; ?>
+      <p class="m-0 p-0">Version {{ replaceGuillemet(params.appVersion) }} - <span style="text-transform:capitalize;">{{
+          platform.platform
+      }}</span>
       </p>
       <hr class="m-auto mt-3 mb-3 w-50">
       <p class="m-0 p-0">© 2022
-        <?= $site ?> - Développeur <a href="https://www.linkedin.com/in/ga%C3%ABtan-seigneur-2b3357200/"
-          target="_blank">Gaëtan Seigneur</a>
+        Développeur <a href="https://www.linkedin.com/in/ga%C3%ABtan-seigneur-2b3357200/" target="_blank">Gaëtan
+          Seigneur</a>
       </p>
     </div>
   </div>
@@ -42,8 +35,27 @@
 
 <script>
 import { defineComponent } from 'vue'
+import { useQuasar } from 'quasar'
 
 export default defineComponent({
-  name: 'CopyrightComponent'
+  name: 'CopyrightComponent',
+  data() {
+    return {
+      countUserRegister: 0
+    }
+  },
+  setup() {
+    const $q = useQuasar()
+
+    return {
+      replaceGuillemet(value) {
+        return value.replaceAll('"', '');
+      },
+      params: {
+        appVersion: '1.0.11',
+      },
+      platform: $q.platform.is,
+    }
+  }
 })
 </script>

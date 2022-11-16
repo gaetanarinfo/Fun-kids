@@ -3,7 +3,6 @@
 @font-face {
   font-family: 'Henny';
   src: url('../../public/fonts/Henny.ttf') format('truetype');
-  /* Safari, Android, iOS */
 }
 
 @import url('https://fonts.googleapis.com/css2?family=Butterfly+Kids&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
@@ -53,7 +52,7 @@ body {
 
 @media all and (max-width: 480px) {
   #home .title h1 {
-    font-size: 1.5em;
+    font-size: 2em;
   }
 }
 
@@ -968,8 +967,9 @@ input[type="range"]:focus {
 
 @media all and (max-width: 480px) {
   .show_mobile {
-    display: block;
+    display: block !important;
     margin-bottom: 7vw;
+    flex-direction: column;
   }
 }
 
@@ -2081,7 +2081,7 @@ textarea {
 @media all and (max-width: 480px) {
   .decouvrir h2 {
     font-family: 'Fruktur', cursive;
-    font-size: 23px;
+    font-size: 16px;
     letter-spacing: 5px;
     text-transform: capitalize;
   }
@@ -2120,13 +2120,15 @@ textarea {
   .decouvrir img {
     margin: auto;
     margin: 0 0;
-    max-width: 93px;
+    max-width: 60px;
   }
 }
 
 .decouvrir ul {
-  margin: 35px 35px 0 35px;
+  margin: 35px 0 35px 0;
   display: block;
+  padding-left: 16px;
+  padding-right: 16px;
   list-style: upper-roman;
 }
 
@@ -2134,6 +2136,7 @@ textarea {
   color: #585858;
   font-weight: 600;
   margin-bottom: 10px;
+  font-size: 13px;
   text-align: left;
   font-family: 'Arial', sans-serif;
 }
@@ -2904,14 +2907,13 @@ textarea {
   box-shadow: 0 0 5px #0000001c;
   border-radius: 15px;
   background: #ffffffb5;
-  min-height: 200px;
   padding: 20px 0;
   font-family: 'Henny', sans-serif;
 }
 
 .card-title {
   color: #000;
-  font-size: 20px
+  font-size: 16px;
 }
 
 .card-icon {
@@ -2919,7 +2921,7 @@ textarea {
 }
 
 .card-icon i {
-  font-size: 72px
+  font-size: 42px
 }
 
 .card-icon i.fa-circle-check {
@@ -2990,10 +2992,6 @@ textarea {
   border-top-right-radius: 20px;
 }
 
-.avis .stars {
-  margin-left: 10px;
-}
-
 .avis .stars .fa-star {
   color: rgb(215, 223, 60);
 }
@@ -3020,7 +3018,7 @@ textarea {
   .title_avis,
   .title_start {
     font-family: 'Fruktur', cursive;
-    font-size: 23px;
+    font-size: 16px;
     letter-spacing: 5px;
     text-transform: capitalize;
   }
@@ -3036,4 +3034,8 @@ textarea {
 .carousel-control-next,
 .carousel-indicators button {
   cursor: url('../../public/cursor/cursor-1.png'), pointer !important;
+}
+
+.w-70 {
+  width: 85%;
 }

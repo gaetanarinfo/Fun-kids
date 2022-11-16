@@ -14,6 +14,7 @@
 
           <div class="body">
 
+            <!--
             <div>
               <label for="soundGeneral" class="form-label">Son général</label>
               <div id="slider">
@@ -37,7 +38,7 @@
                 </output>
               </div>
             </div>
-
+            -->
           </div>
 
           <div class="footer">

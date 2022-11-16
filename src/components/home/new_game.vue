@@ -22,11 +22,11 @@
 
                   <h3>Création de ton compte en cours...</h3>
 
-                  <img src="<?= $static_img ?>clock-loading.gif" alt="">
+                  <img src="../../../public/img/clock-loading.gif" alt="">
                 </div>
 
                 <div class="message_success">
-                  <img src="<?= $static_img ?>message-check.png" alt="">
+                  <img src="../../../public/img/message-check.png" alt="">
                   <h3></h3>
                   <p></p>
                 </div>
@@ -54,19 +54,14 @@
                 <div class="mt-3 mb-3 form">
                   <label for="color">Couleur du personnage</label>
                   <select name="color" id="color" class="form-select round">
-                    <?php foreach ($colors as $color) { ?>
-                    <option value="<?= $color['id'] ?>" <?=(!empty($_COOKIE['color']) && $_COOKIE['id']==$color['id'])
-                      ? "selected" : "" ?>>
-                      <?= $color['name'] ?>
-                    </option>
-                    <?php } ?>
+
                   </select>
                 </div>
 
               </div>
 
               <div class="footer">
-                <input type="submit" id="btn_new_game" class="btn_play form mt-0" value="Jouer"></input>
+                <input type="submit" id="btn_new_game" class="btn_play form mt-0" value="Jouer" />
                 <a id="quit_new_game" class="btn_exit">Quitter</a>
               </div>
 

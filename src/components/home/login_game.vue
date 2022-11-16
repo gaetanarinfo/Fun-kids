@@ -22,11 +22,11 @@
 
                   <h3>Chargement de ton compte en cours...</h3>
 
-                  <img src="<?= $static_img ?>clock-loading.gif" alt="">
+                  <img src="../../../public/img/clock-loading.gif" alt="">
                 </div>
 
                 <div class="message_success">
-                  <img src="<?= $static_img ?>message-check.png" alt="">
+                  <img src="../../../public/img/message-check.png" alt="">
                   <h3></h3>
                   <p></p>
                 </div>

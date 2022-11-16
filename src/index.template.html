@@ -17,6 +17,11 @@
   <link rel="icon" type="image/png" sizes="16x16" href="icons/favicon-16x16.png">
   <link rel="icon" type="image/ico" href="favicon.ico">
 
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fruktur&display=swap" rel="stylesheet">
+
 </head>
 
 <body>
@@ -27,11 +32,15 @@
   <script src="js/bootstrap.min.js"></script>
 
   <script>
-    var myCarousel = document.querySelector('#caroussel')
-    var carousel = new bootstrap.Carousel(myCarousel, {
-      interval: 3000,
-      wrap: true
-    })
+    setTimeout(() => {
+
+      var myCarousel = document.querySelector('#caroussel')
+      var carousel = new bootstrap.Carousel(myCarousel, {
+        interval: 3000,
+        wrap: true
+      })
+
+    }, 1000);
 
   </script>
 
@@ -43,15 +52,17 @@
   <script src="https://www.paypalobjects.com/donate/sdk/donate-sdk.js" charset="UTF-8"></script>
 
   <script>
-    PayPal.Donation.Button({
-      env: 'production',
-      hosted_button_id: '82SH225VPCX5C',
-      image: {
-        src: '<?= $static_img ?>gem.png',
-        alt: 'Faites un don avec PayPal !',
-        title: 'Faites un don avec PayPal !',
-      }
-    }).render('#donate-button');
+    setTimeout(() => {
+      PayPal.Donation.Button({
+        env: 'production',
+        hosted_button_id: '82SH225VPCX5C',
+        image: {
+          src: 'img/gem.png',
+          alt: 'Faites un don avec PayPal !',
+          title: 'Faites un don avec PayPal !',
+        }
+      }).render('#donate-button');
+    }, 1000);
 
   </script>
 
