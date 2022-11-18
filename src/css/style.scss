@@ -15,7 +15,7 @@ body {
   background-size: cover;
 }
 
-@media all and (max-width: 480px) {
+@media all and (max-width: 768px) {
   body {
     background: url(../../public/img/background-1.webp) no-repeat center;
     background-attachment: fixed;
@@ -29,7 +29,7 @@ body {
   min-height: auto;
 }
 
-@media all and (max-width: 480px) {
+@media all and (max-width: 768px) {
 
   #home #loading {
     min-height: auto;
@@ -50,13 +50,13 @@ body {
   margin-bottom: 6rem !important;
 }
 
-@media all and (max-width: 480px) {
+@media all and (max-width: 768px) {
   #home .title h1 {
     font-size: 2em;
   }
 }
 
-@media all and (max-width: 480px) {
+@media all and (max-width: 768px) {
   #home #loading .title {
     margin-bottom: 4rem !important;
   }
@@ -66,7 +66,7 @@ body {
   display: none;
 }
 
-@media all and (max-width: 480px) {
+@media all and (max-width: 768px) {
   #home .kids {
     display: block;
     width: 80%;
@@ -92,7 +92,7 @@ body {
   max-width: 290px;
 }
 
-@media all and (max-width: 480px) {
+@media all and (max-width: 768px) {
   #home #loading .row .col:nth-child(1) {
     display: none;
   }
@@ -122,7 +122,7 @@ body {
   max-width: 360px;
 }
 
-@media all and (max-width: 480px) {
+@media all and (max-width: 768px) {
   #home #menu .row .col:nth-child(1) {
     display: block;
   }
@@ -144,7 +144,7 @@ body {
   transition: 1.5s opacity;
 }
 
-@media all and (max-width: 480px) {
+@media all and (max-width: 768px) {
   #home #btn_start img {
     width: 150px;
   }
@@ -167,7 +167,7 @@ body {
   letter-spacing: 10px;
 }
 
-@media all and (max-width: 480px) {
+@media all and (max-width: 768px) {
   #home #loader .loader_title p {
     font-family: 'Henny', sans-serif;
     letter-spacing: 10px;
@@ -198,7 +198,6 @@ body {
   margin: 25px auto;
   border: 0;
   background: #347ab76e;
-  border-radius: 0px 16px 0px 16px;
   padding: 19px 24px;
   width: 100%;
   line-height: 1.5;
@@ -208,6 +207,7 @@ body {
   font-family: 'Henny', sans-serif;
   letter-spacing: 12px;
   text-shadow: 0px 3px 4px #00000073;
+  box-shadow: 4px 4px 0px #00000017
 }
 
 .btn_play:hover,
@@ -222,7 +222,7 @@ body {
   text-shadow: 0px 3px 4px #00000073;
 }
 
-@media all and (max-width: 480px) {
+@media all and (max-width: 768px) {
 
   .btn_play,
   .btn_option,
@@ -389,7 +389,7 @@ body {
   max-width: 400px;
 }
 
-@media all and (max-width: 480px) {
+@media all and (max-width: 768px) {
   .ajax-loader img {
     width: 100%;
   }
@@ -565,7 +565,7 @@ body {
   margin: 5vw auto;
 }
 
-@media all and (max-width: 480px) {
+@media all and (max-width: 768px) {
   #home #menu .row .col:nth-child(1) {
     margin: 10vw auto;
     padding: 0 6vw;
@@ -579,13 +579,11 @@ body {
   box-shadow: 0px 2px 8px 4px #acbfbf87;
   min-height: 450px;
   background: #acbfbf87;
-  border-radius: 30px 0 30px 0;
 }
 
-@media all and (max-width: 480px) {
+@media all and (max-width: 768px) {
   #home #option .box {
     width: 100%;
-    border-radius: 0;
     background: transparent;
     box-shadow: none;
     min-height: auto;
@@ -599,7 +597,7 @@ body {
   letter-spacing: 10px;
 }
 
-@media all and (max-width: 480px) {
+@media all and (max-width: 768px) {
   #home #option .box h2 {
     font-size: 18px;
   }
@@ -625,9 +623,9 @@ body {
   background: transparent;
 }
 
-@media all and (max-width: 480px) {
+@media all and (max-width: 768px) {
   #slider {
-    background: #00000017 !important;
+    background: #ffffff00 !important;
   }
 }
 
@@ -674,11 +672,7 @@ input[type="range"]::-webkit-slider-thumb {
   width: 11px;
   height: 11px;
   cursor: url('../../public/cursor/cursor-1.png'), pointer;
-  -webkit-box-shadow: 0px 6px 5px 0px rgba(0, 0, 0, 0.6);
-  -moz-box-shadow: 0px 6px 5px 0px rgba(0, 0, 0, 0.6);
   box-shadow: 0px 6px 5px 0px rgba(0, 0, 0, 0.6);
-  -webkit-border-radius: 40px;
-  -moz-border-radius: 40px;
   border-radius: 40px;
 }
 
@@ -702,32 +696,22 @@ input[type="range"]:active~#soundGeneralValue {
 
 #soundBruitageValue,
 #soundGeneralValue {
-  color: white;
+  color: white !important;
   font-size: 10px;
   font-weight: 700;
   text-align: center;
   font-family: Arial, sans-serif;
   display: block;
-  color: #fff;
   margin: 20px 0;
   position: relative;
-  left: 44.5%;
+  left: 40%;
   padding: 7px 12px 4px 12px;
-  border: 1px solid #58a1df;
-  -webkit-box-shadow: inset 0px 1px 1px 0px rgba(255, 255, 255, 0.2), 0px 2px 4px 0px rgba(0, 0, 0, 0.4);
-  -moz-box-shadow: inset 0px 1px 1px 0px rgba(255, 255, 255, 0.2), 0px 2px 4px 0px rgba(0, 0, 0, 0.4);
-  box-shadow: inset 0px 1px 1px 0px rgba(255, 255, 255, 0.2), 0px 2px 4px 0px rgba(0, 0, 0, 0.4);
-  -webkit-border-radius: 20px;
-  -moz-border-radius: 20px;
+  border: 1px solid #cfd3d6;
+  box-shadow: inset 0px 1px 1px 0px #d5ebe8, 0px 2px 4px 0px #00000047;
   border-radius: 20px;
   width: 50px;
-  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
-  filter: alpha(opacity=0);
+  background: #00000096;
   opacity: 0;
-  -webkit-transition: all 0.5s ease;
-  -moz-transition: all 0.5s ease;
-  -o-transition: all 0.5s ease;
-  -ms-transition: all 0.5s ease;
   transition: all 0.5s ease;
   top: -80px;
 }
@@ -742,7 +726,6 @@ input[type="range"]:focus {
   margin: 20px auto;
   background: transparent;
   border: 2px dashed #9d96968f;
-  border-radius: 16px 0 16px 0;
   font-size: 15px;
   font-weight: 600;
   font-family: 'Henny', sans-serif;
@@ -786,12 +769,10 @@ input[type="range"]:focus {
   min-height: auto;
   max-height: auto;
   background: #eab975b0;
-  border-radius: 0 16px 0 16px;
 }
 
-@media all and (max-width: 480px) {
+@media all and (max-width: 768px) {
   #home .classement {
-    border-radius: 16px;
     min-height: auto;
   }
 }
@@ -805,10 +786,10 @@ input[type="range"]:focus {
   font-weight: bold;
 }
 
-@media all and (max-width: 480px) {
+@media all and (max-width: 768px) {
   #home .classement h2 {
     font-size: 15px;
-    padding: 10px;
+    padding: 20px 10px;
   }
 }
 
@@ -820,7 +801,7 @@ input[type="range"]:focus {
   overflow-y: auto;
 }
 
-@media all and (max-width: 480px) {
+@media all and (max-width: 768px) {
   #home .classement .body {
     overflow-x: auto;
   }
@@ -834,7 +815,7 @@ input[type="range"]:focus {
   border-bottom-right-radius: 16px;
 }
 
-@media all and (max-width: 480px) {
+@media all and (max-width: 768px) {
   #home .classement table {
     border: 0;
   }
@@ -881,7 +862,6 @@ input[type="range"]:focus {
   font-size: 12px;
   text-align: center;
   height: 28px;
-  border-radius: 45px 45px 0 0 / 45px 45px 0 0;
   width: 26px;
 }
 
@@ -921,7 +901,7 @@ input[type="range"]:focus {
   width: 25px;
 }
 
-@media all and (max-width: 480px) {
+@media all and (max-width: 768px) {
   #home .classement h2 span img {
     width: 17px;
   }
@@ -965,7 +945,7 @@ input[type="range"]:focus {
   color: transparent;
 }
 
-@media all and (max-width: 480px) {
+@media all and (max-width: 768px) {
   .show_mobile {
     display: block !important;
     margin-bottom: 7vw;
@@ -982,7 +962,6 @@ input[type="range"]:focus {
   position: relative;
   color: black;
   font-family: 'Lato', sans-serif;
-  border-radius: 16px 16px 0 0 / 16px 16px 0 0;
 }
 
 .copyright .link {
@@ -1007,7 +986,7 @@ input[type="range"]:focus {
   color: rgb(145 139 139) !important;
 }
 
-@media all and (max-width: 480px) {
+@media all and (max-width: 768px) {
   .copyright {
     display: block;
     width: 100% !important;
@@ -1015,7 +994,7 @@ input[type="range"]:focus {
   }
 
   .copyright p {
-    font-size: 13px;
+    font-size: 16px;
   }
 }
 
@@ -1029,7 +1008,7 @@ input[type="range"]:focus {
   margin: 5vw auto;
 }
 
-@media all and (max-width: 480px) {
+@media all and (max-width: 768px) {
   #bug .row .col:nth-child(1) {
     margin: 10vw auto;
     padding: 0 6vw;
@@ -1043,13 +1022,11 @@ input[type="range"]:focus {
   box-shadow: 0px 2px 8px 4px #acbfbf87;
   min-height: 450px;
   background: #acbfbf87;
-  border-radius: 30px 0 30px 0;
 }
 
-@media all and (max-width: 480px) {
+@media all and (max-width: 768px) {
   #bug .box {
     width: 100%;
-    border-radius: 0;
     background: transparent;
     box-shadow: none;
     min-height: auto;
@@ -1063,7 +1040,7 @@ input[type="range"]:focus {
   letter-spacing: 10px;
 }
 
-@media all and (max-width: 480px) {
+@media all and (max-width: 768px) {
   #bug .box h2 {
     font-size: 18px;
   }
@@ -1222,7 +1199,7 @@ select:-webkit-autofill:focus {
   margin: 5vw auto;
 }
 
-@media all and (max-width: 480px) {
+@media all and (max-width: 768px) {
   #home #new_game .row .col:nth-child(1) {
     margin: 10vw auto;
     padding: 0 6vw;
@@ -1236,13 +1213,11 @@ select:-webkit-autofill:focus {
   box-shadow: 0px 2px 8px 4px #acbfbf87;
   min-height: 450px;
   background: #acbfbf87;
-  border-radius: 30px 0 30px 0;
 }
 
-@media all and (max-width: 480px) {
+@media all and (max-width: 768px) {
   #home #new_game .box {
     width: 100%;
-    border-radius: 0;
     background: transparent;
     box-shadow: none;
     min-height: auto;
@@ -1256,7 +1231,7 @@ select:-webkit-autofill:focus {
   letter-spacing: 10px;
 }
 
-@media all and (max-width: 480px) {
+@media all and (max-width: 768px) {
   #home #bug .box h2 {
     font-size: 18px;
   }
@@ -1344,12 +1319,10 @@ textarea {
   padding: 1vw;
   height: auto;
   margin: 0 auto;
-  border-radius: 0 16px 0 16px;
 }
 
-@media all and (max-width: 480px) {
+@media all and (max-width: 768px) {
   #home #aide {
-    border-radius: 16px;
     min-height: auto;
     padding: 6vw;
     width: 100% !important;
@@ -1375,14 +1348,14 @@ textarea {
   font-weight: bold;
 }
 
-@media all and (max-width: 480px) {
+@media all and (max-width: 768px) {
   #home #aide h3 {
     font-size: 16px;
     padding: 10px;
   }
 }
 
-@media all and (max-width: 480px) {
+@media all and (max-width: 768px) {
   #home #aide h2 {
     font-size: 18px;
     line-height: 38px;
@@ -1394,7 +1367,7 @@ textarea {
   margin: 6vw auto 0 auto;
 }
 
-@media all and (max-width: 480px) {
+@media all and (max-width: 768px) {
   #home #aide .row .col:nth-child(1) {
     display: block;
   }
@@ -1412,7 +1385,7 @@ textarea {
   justify-items: center;
 }
 
-@media all and (max-width: 480px) {
+@media all and (max-width: 768px) {
   #home #aide .aide_grid {
     grid-template-columns: 1fr !important;
   }
@@ -1496,7 +1469,6 @@ textarea {
   padding: 20px;
   min-height: 240px;
   background: #ffffff70;
-  border-radius: 16px;
   border: 2px dashed #b83333;
   width: 100%;
 }
@@ -1530,7 +1502,7 @@ textarea {
   font-weight: bold;
 }
 
-@media all and (max-width: 480px) {
+@media all and (max-width: 768px) {
   #home .new_game_loader {
     margin: 0 0;
   }
@@ -1547,7 +1519,7 @@ textarea {
   margin: 5vw auto;
 }
 
-@media all and (max-width: 480px) {
+@media all and (max-width: 768px) {
   #home #login_game .row .col:nth-child(1) {
     margin: 10vw auto;
     padding: 0 6vw;
@@ -1561,13 +1533,11 @@ textarea {
   box-shadow: 0px 2px 8px 4px #acbfbf87;
   min-height: 450px;
   background: #acbfbf87;
-  border-radius: 30px 0 30px 0;
 }
 
-@media all and (max-width: 480px) {
+@media all and (max-width: 768px) {
   #home #login_game .box {
     width: 100%;
-    border-radius: 0;
     background: transparent;
     box-shadow: none;
     min-height: auto;
@@ -1581,7 +1551,7 @@ textarea {
   letter-spacing: 10px;
 }
 
-@media all and (max-width: 480px) {
+@media all and (max-width: 768px) {
   #home #login_game .box h2 {
     font-size: 18px;
   }
@@ -1676,16 +1646,14 @@ textarea {
   min-height: auto;
   max-height: auto;
   background: #00000069;
-  border-radius: 0 16px 0 16px;
 }
 
 .shop .pay {
   display: none;
 }
 
-@media all and (max-width: 480px) {
+@media all and (max-width: 768px) {
   .shop {
-    border-radius: 16px;
     min-height: auto;
   }
 }
@@ -1701,10 +1669,10 @@ textarea {
   font-weight: bold;
 }
 
-@media all and (max-width: 480px) {
+@media all and (max-width: 768px) {
   .shop h2 {
     font-size: 15px;
-    padding: 10px;
+    padding: 20px 10px;
   }
 }
 
@@ -1717,7 +1685,7 @@ textarea {
   max-height: 669px;
 }
 
-@media all and (max-width: 480px) {
+@media all and (max-width: 768px) {
   .shop .body {
     overflow-x: auto;
   }
@@ -1731,7 +1699,7 @@ textarea {
   width: 25px;
 }
 
-@media all and (max-width: 480px) {
+@media all and (max-width: 768px) {
   .shop h2 span img {
     width: 17px;
   }
@@ -1755,34 +1723,37 @@ textarea {
   grid-gap: 30px;
 }
 
-@media all and (max-width: 480px) {
+@media all and (max-width: 768px) {
 
   .shop .grid_shop {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-gap: 30px;
+    grid-gap: 50px;
   }
 }
 
 .shop .grid_sorter {
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   margin: 0 0 28px 0;
-  width: 90%;
+  width: 100%;
   margin-left: auto;
   margin-right: auto;
   border-bottom: 2px dashed #ffffff59;
   padding-bottom: 15px;
-  overflow-y: hidden;
-  justify-items: start;
-  overflow-x: auto;
-  flex-direction: row;
-  align-items: center;
-  justify-content: flex-start;
+  gap: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
+  justify-items: center;
 }
 
 .shop .grid_sorter .item:first-child {
   text-align: left;
   width: 100px;
+}
+
+.shop .grid_sorter .item:first-child span {
+  margin-left: 0;
 }
 
 .shop .grid_sorter .item {
@@ -1914,7 +1885,6 @@ textarea {
 }
 
 #submit_card {
-  border-radius: 36px !important;
   width: auto !important;
   height: 35px;
   line-height: 0;
@@ -1934,7 +1904,7 @@ textarea {
   margin: 5vw auto;
 }
 
-@media all and (max-width: 480px) {
+@media all and (max-width: 768px) {
   #shop .row .col:nth-child(1) {
     margin: 10vw auto;
     padding: 0 6vw;
@@ -1948,13 +1918,11 @@ textarea {
   box-shadow: 0px 2px 8px 4px #acbfbf87;
   min-height: 450px;
   background: #acbfbf87;
-  border-radius: 30px 0 30px 0;
 }
 
-@media all and (max-width: 480px) {
+@media all and (max-width: 768px) {
   #shop .box {
     width: 100%;
-    border-radius: 0;
     background: transparent;
     box-shadow: none;
     min-height: auto;
@@ -1966,7 +1934,7 @@ textarea {
   margin: 0 auto;
 }
 
-@media all and (max-width: 480px) {
+@media all and (max-width: 768px) {
 
   #shop .login_shop {
     width: 100%;
@@ -1987,7 +1955,7 @@ textarea {
   letter-spacing: 10px;
 }
 
-@media all and (max-width: 480px) {
+@media all and (max-width: 768px) {
   #shop .box h2 {
     font-size: 18px;
   }
@@ -2022,7 +1990,6 @@ textarea {
   margin: 10px auto !important;
   background: transparent !important;
   border: 2px dashed #ffffff8f !important;
-  border-radius: 16px 0 16px 0 !important;
   font-size: 11px !important;
   font-weight: 600 !important;
   font-family: 'Henny', sans-serif !important;
@@ -2078,10 +2045,10 @@ textarea {
   text-transform: capitalize;
 }
 
-@media all and (max-width: 480px) {
+@media all and (max-width: 768px) {
   .decouvrir h2 {
     font-family: 'Fruktur', cursive;
-    font-size: 16px;
+    font-size: 26px;
     letter-spacing: 5px;
     text-transform: capitalize;
   }
@@ -2091,7 +2058,7 @@ textarea {
   color: white;
   font-family: 'Henny', sans-serif;
   letter-spacing: 1.5px;
-  font-size: 20px;
+  font-size: 26px;
   padding-top: 15px;
   padding-bottom: 10px;
   line-height: 20px;
@@ -2116,7 +2083,7 @@ textarea {
   max-width: 175px;
 }
 
-@media all and (max-width: 480px) {
+@media all and (max-width: 768px) {
   .decouvrir img {
     margin: auto;
     margin: 0 0;
@@ -2136,13 +2103,12 @@ textarea {
   color: #585858;
   font-weight: 600;
   margin-bottom: 10px;
-  font-size: 13px;
+  font-size: 16px;
   text-align: left;
   font-family: 'Arial', sans-serif;
 }
 
 .decouvrir .capture img {
-  border-radius: 16px;
   width: 100%;
   margin: 10px auto;
 }
@@ -2152,7 +2118,7 @@ textarea {
   margin: 0 0 0 0 !important;
 }
 
-@media all and (max-width: 480px) {
+@media all and (max-width: 768px) {
   .decouvrir .diamond {
     animation: none;
     margin: 40px 0 0 0 !important;
@@ -2202,7 +2168,6 @@ textarea {
 }
 
 #card-element {
-  border-radius: 4px 4px 0 0;
   padding: 12px;
   border: 1px dashed rgb(0 0 0 / 55%);
   background: #ffffff;
@@ -2215,7 +2180,7 @@ textarea {
   margin-bottom: 20px;
 }
 
-@media all and (max-width: 480px) {
+@media all and (max-width: 768px) {
   #card-element {
     width: 90%;
   }
@@ -2238,7 +2203,6 @@ textarea {
   font-family: 'Henny', sans-serif;
   letter-spacing: 3px;
   font-weight: 500;
-  border-radius: 0 0 4px 4px;
   border: 0;
   padding: 12px 16px;
   font-size: 16px;
@@ -2307,7 +2271,7 @@ textarea {
   text-align: center;
 }
 
-@media all and (max-width: 480px) {
+@media all and (max-width: 768px) {
   ._404 {
     padding: 0 6vw;
   }
@@ -2333,7 +2297,7 @@ textarea {
   font-weight: 600;
 }
 
-@media all and (max-width: 480px) {
+@media all and (max-width: 768px) {
   ._404 img {
     width: 100%
   }
@@ -2698,7 +2662,7 @@ textarea {
   margin: 5vw auto;
 }
 
-@media all and (max-width: 480px) {
+@media all and (max-width: 768px) {
   #contact .row .col:nth-child(1) {
     margin: 10vw auto;
     padding: 0 6vw;
@@ -2712,13 +2676,11 @@ textarea {
   box-shadow: 0px 2px 8px 4px #acbfbf87;
   min-height: 450px;
   background: #acbfbf87;
-  border-radius: 30px 0 30px 0;
 }
 
-@media all and (max-width: 480px) {
+@media all and (max-width: 768px) {
   #contact .box {
     width: 100%;
-    border-radius: 0;
     background: transparent;
     box-shadow: none;
     min-height: auto;
@@ -2732,7 +2694,7 @@ textarea {
   letter-spacing: 10px;
 }
 
-@media all and (max-width: 480px) {
+@media all and (max-width: 768px) {
   #contact .box h2 {
     font-size: 18px;
   }
@@ -2827,25 +2789,9 @@ textarea {
   width: 50%;
 }
 
-@media all and (max-width: 480px) {
+@media all and (max-width: 768px) {
 
   .iframe_facebook {
-    display: none;
-  }
-}
-
-.iframe_facebook iframe {
-  overflow: hidden;
-  border-radius: 10px;
-  border: 2px dashed #1c5262 !important;
-}
-
-@media all and (max-width: 480px) {
-  .iframe_facebook iframe {
-    display: none;
-  }
-
-  .btn_facebook {
     display: none;
   }
 }
@@ -2913,7 +2859,7 @@ textarea {
 
 .card-title {
   color: #000;
-  font-size: 16px;
+  font-size: 20px;
 }
 
 .card-icon {
@@ -2961,7 +2907,7 @@ textarea {
   padding: 0 0;
 }
 
-@media all and (max-width: 480px) {
+@media all and (max-width: 768px) {
   .avis {
     max-width: 100%;
     width: 100% !important;
@@ -3013,12 +2959,12 @@ textarea {
   text-transform: capitalize;
 }
 
-@media all and (max-width: 480px) {
+@media all and (max-width: 768px) {
 
   .title_avis,
   .title_start {
     font-family: 'Fruktur', cursive;
-    font-size: 16px;
+    font-size: 26px;
     letter-spacing: 5px;
     text-transform: capitalize;
   }
@@ -3038,4 +2984,18 @@ textarea {
 
 .w-70 {
   width: 85%;
+}
+
+#home .classement table tbody tr td {
+  width: 100%;
+  vertical-align: middle;
+}
+
+#home .classement table tbody tr td:first-child {
+  width: 100%;
+  vertical-align: middle;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 0 6px;
 }

@@ -14,15 +14,13 @@
 
           <div class="body">
 
-            <!--
             <div>
               <label for="soundGeneral" class="form-label">Son général</label>
               <div id="slider">
-                <input type="range" class="form-range" min="0.1" max="1.0" step="0.1"
-                  value="<?= (!empty($_COOKIE['soundGeneral'])) ? $_COOKIE['soundGeneral'] : " 1" ?>" id="soundGeneral"
-                onchange="soundGeneralValue.value=value">
+                <input type="range" class="form-range" min="0" max="1.0" step="0.1" :value="soundGeneral"
+                  id="soundGeneral" onchange="soundGeneralValue.value=value">
                 <output id="soundGeneralValue">
-                  <?= (!empty($_COOKIE['soundGeneral'])) ? $_COOKIE['soundGeneral'] : "1" ?>
+                  {{ soundGeneral }}
                 </output>
               </div>
             </div>
@@ -30,15 +28,14 @@
             <div class="mt-3">
               <label for="soundBruitage" class="form-label">Bruitage</label>
               <div id="slider">
-                <input type="range" class="form-range" min="0.1" max="1.0" step="0.1"
-                  value="<?= (!empty($_COOKIE['soundBruitage'])) ? $_COOKIE['soundBruitage'] : " 1" ?>"
-                id="soundBruitage" onchange="soundBruitageValue.value=value">
+                <input type="range" class="form-range" min="0" max="1.0" step="0.1" :value="soundBruitage"
+                  id="soundBruitage" onchange="soundBruitageValue.value=value">
                 <output id="soundBruitageValue">
-                  <?= (!empty($_COOKIE['soundBruitage'])) ? $_COOKIE['soundBruitage'] : "1" ?>
+                  {{ soundBruitage }}
                 </output>
               </div>
             </div>
-            -->
+
           </div>
 
           <div class="footer">
@@ -58,8 +55,20 @@
 
 <script>
 import { defineComponent } from 'vue'
+import { Cookies } from 'quasar'
+
+var soundBruitage = 1,
+  soundGeneral = 1;
 
 export default defineComponent({
-  name: 'OptionComponent'
+  name: 'OptionComponent',
+  data() {
+
+    return {
+      soundBruitage: (Cookies.has('soundBruitage')) ? soundBruitage = Cookies.get('soundBruitage') : 1,
+      soundGeneral: (Cookies.has('soundGeneral')) ? soundGeneral = Cookies.get('soundGeneral') : 1
+    }
+
+  }
 })
 </script>

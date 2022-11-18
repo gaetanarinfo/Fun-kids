@@ -16,6 +16,15 @@ setTimeout(() => {
   }, 1000);
 
   $.ajax({
+    url: 'https://funkids.site/ajax/ajax-showUserRegister.php',
+    success: function (data) {
+
+      $('#userRegisterPlayer').html(data)
+
+    }
+  })
+
+  $.ajax({
     url: 'https://funkids.site/ajax/ajax-selectColor.php',
     success: function (data) {
 
@@ -29,6 +38,15 @@ setTimeout(() => {
     success: function (data) {
 
       $('#showClassement').html(data)
+
+    }
+  })
+
+  $.ajax({
+    url: 'https://funkids.site/ajax/ajax-showShop.php',
+    success: function (data) {
+
+      $('.grid_shop').html(data)
 
     }
   })
@@ -100,6 +118,10 @@ setTimeout(() => {
     $('#home #loading').show();
     $('#home #btn_start').show();
 
+    $('html, body').animate({
+      scrollTop: $("html").offset().top
+    }, "slow");
+
   })
 
   $(document).on('click', '#btn_option', function (e) {
@@ -119,8 +141,11 @@ setTimeout(() => {
 
     playAudioClic();
 
-    sound_1.volume = $('#sound_1').attr('volume');
-    clic_1.volume = $('#clic_1').attr('volume');
+    var sound_1s = document.getElementById("sound_1")
+    var clic_1s = document.getElementById("clic_1")
+
+    sound_1.volume = sound_1s.volume;
+    clic_1.volume = clic_1s.volume;
 
     $('#home #option').hide();
     $('#home #menu').show();
@@ -174,13 +199,13 @@ setTimeout(() => {
 
     playAudioClic();
 
-    $('#home .classement').fadeIn();
     $('#home #shop').hide();
+    $('#home .classement').fadeIn();
 
     setTimeout(() => {
       if ($(window).width() < 728) {
         $('html, body').animate({
-          scrollTop: $(".classement").offset().top + 20
+          scrollTop: $(".classement").offset().top - 10
         }, "slow");
       }
     }, 200);
@@ -195,6 +220,10 @@ setTimeout(() => {
 
     $('#home .classement').fadeOut();
 
+    $('html, body').animate({
+      scrollTop: $("html").offset().top
+    }, "slow");
+
   })
 
   $(document).on('click', '#quit_bug', function (e) {
@@ -203,9 +232,14 @@ setTimeout(() => {
 
     playAudioClic();
 
+    $('html, body').animate({
+      scrollTop: $("html").offset().top
+    }, "slow");
+
     $('#home #bug').hide();
     $('#home #menu').show();
-
+    $('#home .menu').show();
+    $('#home .classement').hide();
   })
 
   $(document).on('click', '#report_bug', function (e) {
@@ -215,7 +249,7 @@ setTimeout(() => {
     playAudioClic();
 
     $('html, body').animate({
-      scrollTop: $("body").offset().top
+      scrollTop: $("html").offset().top
     }, "slow");
 
     $('#home #loading').hide();
@@ -233,18 +267,6 @@ setTimeout(() => {
   $('#form_bug').submit(function (e) {
 
     e.preventDefault();
-
-    if (!grecaptcha.getResponse()) {
-
-      grecaptcha.execute();
-
-    } else {
-
-    }
-
-  })
-
-  function recaptchacheck(token) {
 
     var url = "https://funkids.site/ajax/ajax-requestBug.php",
       formData = $("#form_bug").serialize();
@@ -289,7 +311,7 @@ setTimeout(() => {
       }
     })
 
-  }
+  })
 
   $(document).on('click', '#btn_play_game', function (e) {
 
@@ -361,7 +383,7 @@ setTimeout(() => {
 
           setTimeout(() => {
 
-            location.href = '/level';
+            location.href = '#/level';
 
           }, 1600);
 
@@ -435,9 +457,12 @@ setTimeout(() => {
 
         if (res.login === true) {
 
+          sessionStorage.setItem("user_id", res.user_id);
+          localStorage.setItem("user_id", res.user_id);
+
           setTimeout(() => {
 
-            location.href = '/level';
+            location.href = '#/level';
 
           }, 1600);
 
@@ -496,6 +521,10 @@ setTimeout(() => {
     $(".box").parent().removeAttr('css');
     $('.body').parent().removeAttr('css');
 
+    $('html, body').animate({
+      scrollTop: $("html").offset().top
+    }, "slow");
+
   })
 
 
@@ -514,6 +543,10 @@ setTimeout(() => {
     $('#home #login_game').hide();
     $('#home #aide').show();
 
+    $('html, body').animate({
+      scrollTop: $("html").offset().top
+    }, "slow");
+
   })
 
   $(document).on('click', '#btn_quit_aide', function (e) {
@@ -525,12 +558,16 @@ setTimeout(() => {
     $('#home #loading').hide();
     $('#home #menu').show();
     $('#home #option').hide();
-    $('#home #classement').hide();
+    $('#home .classement').hide();
     $('#home #shop').hide();
     $('#home #new_game').hide();
     $('#home #login_game').hide();
     $('#home #aide').hide();
     $('#home #bug').hide();
+
+    $('html, body').animate({
+      scrollTop: $("html").offset().top
+    }, "slow")
 
   })
 
@@ -546,16 +583,14 @@ setTimeout(() => {
     $('#home #loader').show();
 
     $('html, body').animate({
-      scrollTop: $("body").offset().top
+      scrollTop: $("html").offset().top
     }, "slow");
 
-    setTimeout(() => {
-
-      $('#home #loading').hide();
-      $('#home #menu').show();
-      $('#home #shop').fadeIn();
-
-    }, timeout_1 * 6);
+    $('#home #loading').hide();
+    $('#home .classement').hide()
+    $('#home #menu').show();
+    $('#home #shop').fadeIn();
+    $('#menu .row .col:first-child').hide()
 
   })
 
@@ -567,6 +602,7 @@ setTimeout(() => {
 
     $('#home #shop').fadeIn();
     $('#home .classement').hide();
+    $('#menu .row .col:first-child').hide();
 
     $('html, body').animate({
       scrollTop: $("html").offset().top
@@ -574,18 +610,8 @@ setTimeout(() => {
 
   })
 
-  $(document).on('click', '#close_shop', function (e) {
-
-    e.preventDefault();
-
-    playAudioClic();
-
-    $('#home .shop').fadeOut();
-
-  })
-
   $(document).on('click', '#btn_shop_games', function (e) {
-
+    ajax
     e.preventDefault();
 
     playAudioClic();
@@ -662,7 +688,7 @@ setTimeout(() => {
     $('.grid_shop').hide();
     $('.grid_sorter').hide();
 
-    $('.pay .header').html('<div class="item_shop"><img src="../assets/img/level/' + item_image + '.png" /><p>' + item_name + ' - <span class="price">' + item_price + '</span></p></div>');
+    $('.pay .header').html('<div class="item_shop"><img src="https://funkids.site/assets/img/level/' + item_image + '.png" /><p>' + item_name + ' - <span class="price">' + item_price + '</span></p></div>');
 
     $('.pay').fadeIn(300);
 
@@ -817,7 +843,7 @@ setTimeout(() => {
           $('.pay .stripe').remove();
           $('.pay .header').remove();
 
-          $('.after_paiement img').attr('src', 'assets/img/check.png');
+          $('.after_paiement img').attr('src', 'https://funkids.site/assets/img/check.png');
           $('.after_paiement h2').html('Ton paiement est accepter');
           $('.after_paiement p').html('Ton compte à été créditer de <span class="credit"></span>.<br/><br/>');
           $('.after_paiement p').append('Tu as reçu un email de récapitulatif de ta commande.');
@@ -854,7 +880,7 @@ setTimeout(() => {
           $('.pay .stripe').remove();
           $('.pay .header').remove();
 
-          $('.after_paiement img').attr('src', 'assets/img/cancel.png');
+          $('.after_paiement img').attr('src', 'https://funkids.site/assets/img/cancel.png');
           $('.after_paiement h2').html('Ton paiement à été refusée');
           $('.after_paiement p').html('Tu n\'a pas été débité sur ton compte bancaire.');
 
@@ -889,7 +915,7 @@ setTimeout(() => {
           $('.pay .stripe').remove();
           $('.pay .header').remove();
 
-          $('.after_paiement img').attr('src', 'assets/img/cancel.png');
+          $('.after_paiement img').attr('src', 'https://funkids.site/assets/img/cancel.png');
           $('.after_paiement h2').html('Ton paiement à été refusée');
           $('.after_paiement p').html('Tu n\'a pas été débité sur ton compte bancaire.');
 
@@ -924,7 +950,7 @@ setTimeout(() => {
           $('.pay .stripe').remove();
           $('.pay .header').remove();
 
-          $('.after_paiement img').attr('src', 'assets/img/cancel.png');
+          $('.after_paiement img').attr('src', 'https://funkids.site/assets/img/cancel.png');
           $('.after_paiement h2').html('Ton paiement à été refusée');
           $('.after_paiement p').html('Tu n\'a pas été débité sur ton compte bancaire.');
 
@@ -959,7 +985,7 @@ setTimeout(() => {
           $('.pay .stripe').remove();
           $('.pay .header').remove();
 
-          $('.after_paiement img').attr('src', 'assets/img/cancel.png');
+          $('.after_paiement img').attr('src', 'https://funkids.site/assets/img/cancel.png');
           $('.after_paiement h2').html('Ton paiement à été refusée');
           $('.after_paiement p').html('Tu n\'a pas été débité sur ton compte bancaire.');
 
@@ -983,6 +1009,9 @@ setTimeout(() => {
     playAudioClic();
 
     $('#home .shop').fadeOut();
+    $('#menu .row .menu').show();
+    $('#home #contact').hide();
+    $('#home #bug').hide();
 
   })
 
@@ -999,6 +1028,8 @@ setTimeout(() => {
     $('.after_paiement').hide();
     $('.grid_shop').show();
     $('.grid_sorter').show();
+    $('#home #contact').hide();
+    $('#home #bug').hide();
 
   })
 
@@ -1050,6 +1081,12 @@ setTimeout(() => {
 
     $('#home #contact').hide();
     $('#home #menu').show();
+    $('#home .classement').hide();
+    $('#home .menu').show();
+
+    $('html, body').animate({
+      scrollTop: $("html").offset().top
+    }, "slow");
 
   })
 

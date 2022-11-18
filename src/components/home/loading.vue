@@ -22,7 +22,7 @@
 
         </div>
 
-        <h2 class="title_start mb-5" style="padding-left: 10px;">Jouer <span>gratuitement</span> 🎮</h2>
+        <h2 class="title_start mb-5" style="padding-left: 10px;">Jouer <span>gratuitement</span></h2>
 
         <div class="btn-start">
 

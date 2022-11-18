@@ -7,8 +7,13 @@
       </div>
       <p style="margin-top: 20px;margin-bottom: 0;">Faites un don avec PayPal</p>
       <hr class="m-auto mt-3 mb-3 w-50">
-      <p class="m-0 p-0"><span id="report_bug" class="link">Signaler un bug ? 🐭</span> - <span class="link"
-          id="shop_home">Boutique 🎉 </span> - <span class="link" id="btn_cp_contact">Nous contacter 🤙</span></p>
+
+      <p class="m-0 mb-3 p-0"><span id="report_bug" class="link">Signaler un bug ? 🐭</span></p>
+
+      <p class="m-0 mb-3 p-0"><span class="link" id="shop_home">Boutique 🎉 </span></p>
+
+      <p class="m-0 p-0"><span class="link" id="btn_cp_contact">Nous contacter 🤙</span></p>
+
       <hr class="m-auto mt-3 mb-3 w-50">
       <p class="m-0 p-0">
         <span class="online"></span>
@@ -52,7 +57,7 @@ export default defineComponent({
         return value.replaceAll('"', '');
       },
       params: {
-        appVersion: '1.0.11',
+        appVersion: '1.0.2',
       },
       platform: $q.platform.is,
     }

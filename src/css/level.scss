@@ -3,13 +3,18 @@
   text-align: center;
 }
 
+#level {
+  padding: 2vw;
+}
+
 .banniere img {
   max-width: 620px;
+  width: 100%;
 }
 
 .header_level {
   max-width: 890px;
-  height: 131px;
+  height: 193px;
   margin: 0 auto;
   padding: 12px 20px;
   background: #fdfcee57;
@@ -204,6 +209,7 @@ td {
   text-align: center;
   padding: 19px 29px;
   text-indent: 5px;
+  margin-top: 13px;
 }
 
 .play_after #play_after {

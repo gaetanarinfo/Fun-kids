@@ -14,11 +14,11 @@
     <!-- Login game -->
     <login_game />
 
-    <!-- Option -->
-    <!-- <optionComponent />-->
+    <!-- Options -->
+    <optionComponent />
 
     <!-- Bug -->
-    <!-- <bug />-->
+    <bug />
 
     <!-- Contact -->
     <contact />
@@ -26,6 +26,7 @@
     <!-- Aide -->
     <aide />
 
+    <!-- Copyright -->
     <copyright />
 
     <!-- Son Ambiance -->
@@ -54,6 +55,17 @@ import contact from '../components/home/contact.vue'
 import aide from '../components/home/aide.vue'
 import copyright from '../components/home/copyright.vue'
 
+
+setTimeout(() => {
+
+  var myCarousel = document.querySelector('#caroussel')
+  var carousel = new bootstrap.Carousel(myCarousel, {
+    interval: 3000,
+    wrap: true
+  })
+
+}, 1000);
+
 export default defineComponent({
   name: 'HomePage',
   components: {
@@ -61,8 +73,8 @@ export default defineComponent({
     menuComponent,
     new_game,
     login_game,
-    // optionComponent,
-    // bug,
+    optionComponent,
+    bug,
     contact,
     aide,
     copyright

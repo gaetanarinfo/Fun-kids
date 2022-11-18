@@ -36,7 +36,6 @@ module.exports = configure(function (ctx) {
     css: [
       'app.scss',
       'style.scss',
-      'level.scss',
       'bootstrap.min.scss'
     ],
 
@@ -92,13 +91,11 @@ module.exports = configure(function (ctx) {
       server: {
         type: 'http'
       },
+      host: 'localhost',
       port: 8080,
       open: true, // opens browser window automatically
       headers: {
-        'Access-Control-Allow-Methods': 'GET, POST, PUT, PATCH, DELETE, OPTIONS',
-        'Access-Control-Allow-Headers': 'Content-Type, Authorization',
         'Access-Control-Allow-Origin': '*',
-        'access-control-allow-credentials': true
       }
     },
 

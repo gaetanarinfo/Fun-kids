@@ -4,7 +4,7 @@
 
     <div class="row show_mobile">
 
-      <div class="col text-center hide_mobile">
+      <div class="col text-center hide_mobile menu">
 
         <div class="title mb-2">
           <h1 class="fw-bold">
@@ -36,7 +36,7 @@
         <a id="btn_aide" class="btn_aide">Comment jouer ?</a>
 
         <a id="btn_classement_game" class="btn_classement">Classement</a>
-        <a id="btn_option" class="btn_option">Option</a>
+        <a id="btn_option" class="btn_option">Options</a>
         <a id="btn_exit_game" class="btn_exit" onclick="stopAudio()">Quitter</a>
       </div>
 
