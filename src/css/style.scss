@@ -7,22 +7,31 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Butterfly+Kids&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
 
+/***** HOME *****/
+
 body {
-  background: url('../../public/img/background-1.webp') no-repeat center fixed;
-  cursor: url('../../public/cursor/cursor-1.png'), pointer;
-  position: relative;
-  -webkit-background-size: cover;
-  background-size: cover;
+  background-color: #fff;
 }
 
-@media all and (max-width: 768px) {
-  body {
-    background: url(../../public/img/background-1.webp) no-repeat center;
-    background-attachment: fixed;
+.container,
+.container-md,
+.container-sm {
+  max-width: 90% !important;
+}
+
+@media all and (min-width: 576px) {
+
+  .container,
+  .container-sm {
+    max-width: 90% !important;
   }
 }
 
-/***** HOME *****/
+
+.w-100 {
+  max-width: 100% !important;
+
+}
 
 #home {
   width: 100%;
@@ -98,7 +107,7 @@ body {
   }
 
   #home #loading .row .col:nth-child(2) {
-    margin: 10vw auto;
+    margin: 5vw auto;
   }
 
   #home #loading .row .col:nth-child(3) {
@@ -129,7 +138,7 @@ body {
 
   #home #menu .row .col:nth-child(2) {
     padding: 0 6vw 0 6vw !important;
-    margin: 10vw auto;
+    margin: 5vw auto;
   }
 
   #home #menu .row .col:nth-child(3) {
@@ -189,6 +198,7 @@ body {
 .btn_exit,
 .btn_classement,
 .btn_aide,
+.btn_cgv,
 .btn_shop {
   transition: 1s all;
   text-align: center;
@@ -213,6 +223,7 @@ body {
 .btn_play:hover,
 .btn_option:hover,
 .btn_exit:hover,
+.btn_cgv:hover,
 .btn_classement:hover,
 .btn_aide:hover,
 .btn_shop:hover {
@@ -226,6 +237,7 @@ body {
 
   .btn_play,
   .btn_option,
+  .btn_cgv,
   .btn_exit,
   .btn_classement,
   .btn_aide,
@@ -370,14 +382,16 @@ body {
   cursor: url('../../public/cursor/cursor-1.png'), pointer;
 }
 
-.btn_exit {
+.btn_exit,
+.btn_cgv {
   background: #ef3838b5;
   color: white;
   text-shadow: 0px 3px 4px #ffffffad;
   cursor: url('../../public/cursor/cursor-1.png'), pointer;
 }
 
-.btn_exit:hover {
+.btn_exit:hover,
+.btn_cgv:hover {
   background: #ef3838b5;
   color: white;
   text-shadow: 0px 3px 4px #ffffffad
@@ -567,13 +581,13 @@ body {
 
 @media all and (max-width: 768px) {
   #home #menu .row .col:nth-child(1) {
-    margin: 10vw auto;
+    margin: 5vw auto;
     padding: 0 6vw;
   }
 }
 
 #home #option .box {
-  width: 30vw;
+  width: 50%;
   padding: 1vw;
   margin: 0 auto;
   box-shadow: 0px 2px 8px 4px #acbfbf87;
@@ -962,6 +976,8 @@ input[type="range"]:focus {
   position: relative;
   color: black;
   font-family: 'Lato', sans-serif;
+  margin-top: 0 !important;
+  padding-top: 0 !important;
 }
 
 .copyright .link {
@@ -990,7 +1006,7 @@ input[type="range"]:focus {
   .copyright {
     display: block;
     width: 100% !important;
-    margin: 6vw 0 !important;
+    margin: 0 0 !important;
   }
 
   .copyright p {
@@ -1010,13 +1026,13 @@ input[type="range"]:focus {
 
 @media all and (max-width: 768px) {
   #bug .row .col:nth-child(1) {
-    margin: 10vw auto;
+    margin: 5vw auto;
     padding: 0 6vw;
   }
 }
 
 #bug .box {
-  width: 30vw;
+  width: 50%;
   padding: 1vw;
   margin: 0 auto;
   box-shadow: 0px 2px 8px 4px #acbfbf87;
@@ -1201,13 +1217,13 @@ select:-webkit-autofill:focus {
 
 @media all and (max-width: 768px) {
   #home #new_game .row .col:nth-child(1) {
-    margin: 10vw auto;
+    margin: 5vw auto;
     padding: 0 6vw;
   }
 }
 
 #home #new_game .box {
-  width: 30vw;
+  width: 50%;
   padding: 1vw;
   margin: 0 auto;
   box-shadow: 0px 2px 8px 4px #acbfbf87;
@@ -1521,13 +1537,13 @@ textarea {
 
 @media all and (max-width: 768px) {
   #home #login_game .row .col:nth-child(1) {
-    margin: 10vw auto;
+    margin: 5vw auto;
     padding: 0 6vw;
   }
 }
 
 #home #login_game .box {
-  width: 30vw;
+  width: 50%;
   padding: 1vw;
   margin: 0 auto;
   box-shadow: 0px 2px 8px 4px #acbfbf87;
@@ -1727,7 +1743,7 @@ textarea {
 
   .shop .grid_shop {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
     grid-gap: 50px;
   }
 }
@@ -1906,13 +1922,13 @@ textarea {
 
 @media all and (max-width: 768px) {
   #shop .row .col:nth-child(1) {
-    margin: 10vw auto;
+    margin: 5vw auto;
     padding: 0 6vw;
   }
 }
 
 #shop .box {
-  width: 30vw;
+  width: 50%;
   padding: 1vw;
   margin: 0 auto;
   box-shadow: 0px 2px 8px 4px #acbfbf87;
@@ -1945,6 +1961,7 @@ textarea {
 #shop .login_shop .footer {
   margin-top: 30px !important;
   margin: 0 auto;
+  max-width: 230px;
 }
 
 
@@ -2094,8 +2111,8 @@ textarea {
 .decouvrir ul {
   margin: 35px 0 35px 0;
   display: block;
-  padding-left: 16px;
-  padding-right: 16px;
+  padding-left: 20px;
+  padding-right: 20px;
   list-style: upper-roman;
 }
 
@@ -2309,6 +2326,7 @@ textarea {
 
 .shop .login_chest img {
   animation: Chest 2s cubic-bezier(.36, .07, .19, .97) infinite;
+  max-width: 160px;
 }
 
 @keyframes Chest {
@@ -2369,6 +2387,13 @@ textarea {
 }
 
 .copyright p {
+  font-weight: 700;
+  font-family: 'Henny', sans-serif;
+  letter-spacing: 2px;
+}
+
+.copyright a {
+  justify-content: center;
   font-weight: 700;
   font-family: 'Henny', sans-serif;
   letter-spacing: 2px;
@@ -2664,13 +2689,13 @@ textarea {
 
 @media all and (max-width: 768px) {
   #contact .row .col:nth-child(1) {
-    margin: 10vw auto;
+    margin: 5vw auto;
     padding: 0 6vw;
   }
 }
 
 #contact .box {
-  width: 30vw;
+  width: 50%;
   padding: 1vw;
   margin: 0 auto;
   box-shadow: 0px 2px 8px 4px #acbfbf87;
@@ -2847,6 +2872,8 @@ textarea {
 
 .cards .row {
   justify-content: center;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
 }
 
 .card {
@@ -2896,7 +2923,7 @@ textarea {
 
 #fun1,
 #fun2 {
-  max-width: 990px;
+  max-width: 90%;
   margin: 0 auto;
 }
 

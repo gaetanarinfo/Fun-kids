@@ -1,6 +1,8 @@
 setTimeout(() => {
   // home //
 
+  $('#home #btn_start').show();
+
   // Show user online
   setInterval(() => {
 
@@ -611,7 +613,7 @@ setTimeout(() => {
   })
 
   $(document).on('click', '#btn_shop_games', function (e) {
-    ajax
+
     e.preventDefault();
 
     playAudioClic();

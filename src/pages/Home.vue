@@ -1,6 +1,26 @@
 <template>
 
-  <div id="home">
+  <div class="div" :style="(loader) ? '' : 'display:none;'">
+    <div id="wrapper">
+      <div class="loader">
+      </div>
+      <div class="loading-bar">
+        <div class="progress-bar"></div>
+      </div>
+      <div class="status">
+        <div class="state"></div>
+        <div class="percentage"></div>
+      </div>
+    </div>
+  </div>
+
+
+  <div id="home" :style="(loader) ? 'display:none;' : 'display:block;'">
+
+    <div id="console"></div>
+
+    <p id="gold-coins">L'ingot :</p>
+    <div id="consumable1-purchase">Please wait...</div>
 
     <!-- Loading -->
     <loading />
@@ -55,6 +75,11 @@ import contact from '../components/home/contact.vue'
 import aide from '../components/home/aide.vue'
 import copyright from '../components/home/copyright.vue'
 
+$('body').attr('style', "background: url('../img/backgrounds/fondloader.webp') !important;background-repeat: no-repeat !important;background-size: cover !important;background-position: center; transition: all 2ms;");
+
+setTimeout(() => {
+  $('body').attr('style', ' background: url(../img/background-1.webp) no-repeat center;background-attachment: fixed;');
+}, 5500);
 
 setTimeout(() => {
 
@@ -65,6 +90,12 @@ setTimeout(() => {
   })
 
 }, 1000);
+
+import home from '../../public/js/home.js';
+import shop from '../../public/js/shop.js';
+
+home;
+shop;
 
 export default defineComponent({
   name: 'HomePage',
@@ -79,11 +110,21 @@ export default defineComponent({
     aide,
     copyright
   },
-  setup() {
-
+  data() {
     return {
-
+      loader: true
     }
+  },
+  setup() {
+    return {
+    }
+  },
+  mounted() {
+
+    setTimeout(() => {
+      this.loader = false
+    }, 5500);
+
   }
 })
 </script>

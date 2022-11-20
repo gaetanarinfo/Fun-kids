@@ -12,7 +12,15 @@
 
       <p class="m-0 mb-3 p-0"><span class="link" id="shop_home">Boutique 🎉 </span></p>
 
-      <p class="m-0 p-0"><span class="link" id="btn_cp_contact">Nous contacter 🤙</span></p>
+      <p class="m-0 mb-3 p-0"><span class="link" id="btn_cp_contact">Nous contacter 🤙</span></p>
+
+      <p class="m-0 mb-3 p-0">
+        <q-item class="link" to="/confidentialite">Politique de confidentialité</q-item>
+      </p>
+
+      <p class="m-0 p-0">
+        <q-item class="link" to="/cgv">CGV</q-item>
+      </p>
 
       <hr class="m-auto mt-3 mb-3 w-50">
       <p class="m-0 p-0">
@@ -57,7 +65,7 @@ export default defineComponent({
         return value.replaceAll('"', '');
       },
       params: {
-        appVersion: '1.0.2',
+        appVersion: '1.0.5',
       },
       platform: $q.platform.is,
     }

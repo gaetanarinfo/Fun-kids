@@ -85,7 +85,7 @@
 
         <div class="row">
 
-          <div class="col-sm-3 mb-4">
+          <div class="mb-4">
             <div class="card">
               <div class="card-body">
                 <h5 class="card-title">Paiement sécurisé</h5>
@@ -94,7 +94,7 @@
             </div>
           </div>
 
-          <div class="col-sm-3 mb-4">
+          <div class="mb-4">
             <div class="card">
               <div class="card-body">
                 <h5 class="card-title">Item à vie</h5>
@@ -103,7 +103,7 @@
             </div>
           </div>
 
-          <div class="col-sm-3 mb-4">
+          <div class="mb-4">
             <div class="card">
               <div class="card-body">
                 <h5 class="card-title">Joue sans limite</h5>
@@ -112,11 +112,7 @@
             </div>
           </div>
 
-        </div>
-
-        <div class="row">
-
-          <div class="col-sm-3 mb-4">
+          <div class="mb-4">
             <div class="card">
               <div class="card-body">
                 <h5 class="card-title">Inscription Gratuite</h5>
@@ -125,7 +121,7 @@
             </div>
           </div>
 
-          <div class="col-sm-3 mb-4">
+          <div class="mb-4">
             <div class="card">
               <div class="card-body">
                 <h5 class="card-title">Joue n'importe où</h5>
@@ -134,7 +130,7 @@
             </div>
           </div>
 
-          <div class="col-sm-3 mb-4">
+          <div class="mb-4">
             <div class="card">
               <div class="card-body">
                 <h5 class="card-title">100% Compatibles</h5>

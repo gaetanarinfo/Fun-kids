@@ -10,8 +10,12 @@ const routes = [{
         component: () => import('src/pages/Level.vue')
       },
       {
-        path: '/level/:user_id',
-        component: () => import('src/pages/Level.vue')
+        path: '/cgv',
+        component: () => import('src/pages/Cgv.vue')
+      },
+      {
+        path: '/confidentialite',
+        component: () => import('src/pages/Confidentialite.vue')
       }
     ]
   },

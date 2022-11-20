@@ -1,6 +1,6 @@
 <template>
 
-  <div id="level"></div>
+  <div id="levels"></div>
 
   <!-- Shop -->
   <shop />
