@@ -6,10 +6,23 @@
 import { defineComponent } from 'vue'
 
 screen.orientation.lock('landscape-primary');
+screen.orientation.unlock();
 
-screen.orientation.addEventListener('change', function () {
-  screen.orientation.lock('landscape-primary');
-});
+function getOppositeOrientation() {
+  return screen
+    .orientation
+    .startsWith("portrait") ? "portrait" : "portrait";
+}
+
+async function rotate() {
+  if (!document.fullscreenElement) {
+    await document.documentElement.requestFullscreen();
+  }
+  const newOrientation = getOppositeOrientation();
+  await screen.orientation.lock(newOrientation);
+}
+
+rotate(this)
 
 export default defineComponent({
   name: 'App'

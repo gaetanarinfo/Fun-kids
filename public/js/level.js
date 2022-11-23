@@ -94,7 +94,9 @@ $(document).on('click', '#chest_btn', function (e) {
           countdownManager.init();
         });
 
-        $('.bonus_time').fadeIn(200);
+        console.log(countdownManager['displayElement']['day']);
+
+        if (countdownManager['displayElement']['day'] != null) $('.bonus_time').fadeIn(200);
 
       }
 

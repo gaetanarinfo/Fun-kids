@@ -65,7 +65,7 @@ export default defineComponent({
         return value.replaceAll('"', '');
       },
       params: {
-        appVersion: '1.0.5',
+        appVersion: '1.0.9',
       },
       platform: $q.platform.is,
     }

@@ -8,6 +8,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Butterfly+Kids&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
 
 /***** HOME *****/
+.h2,
+h2 {
+  font-size: 20px !important;
+}
 
 body {
   background-color: #fff;
@@ -38,7 +42,7 @@ body {
   min-height: auto;
 }
 
-@media all and (max-width: 768px) {
+@media all and (max-width: 1500px) {
 
   #home #loading {
     min-height: auto;
@@ -59,13 +63,13 @@ body {
   margin-bottom: 6rem !important;
 }
 
-@media all and (max-width: 768px) {
+@media all and (max-width: 1500px) {
   #home .title h1 {
-    font-size: 2em;
+    font-size: 26px;
   }
 }
 
-@media all and (max-width: 768px) {
+@media all and (max-width: 1500px) {
   #home #loading .title {
     margin-bottom: 4rem !important;
   }
@@ -75,7 +79,7 @@ body {
   display: none;
 }
 
-@media all and (max-width: 768px) {
+@media all and (max-width: 1500px) {
   #home .kids {
     display: block;
     width: 80%;
@@ -101,7 +105,7 @@ body {
   max-width: 290px;
 }
 
-@media all and (max-width: 768px) {
+@media all and (max-width: 1500px) {
   #home #loading .row .col:nth-child(1) {
     display: none;
   }
@@ -131,7 +135,7 @@ body {
   max-width: 360px;
 }
 
-@media all and (max-width: 768px) {
+@media all and (max-width: 1500px) {
   #home #menu .row .col:nth-child(1) {
     display: block;
   }
@@ -153,9 +157,9 @@ body {
   transition: 1.5s opacity;
 }
 
-@media all and (max-width: 768px) {
+@media all and (max-width: 1500px) {
   #home #btn_start img {
-    width: 150px;
+    width: 126px;
   }
 }
 
@@ -176,7 +180,7 @@ body {
   letter-spacing: 10px;
 }
 
-@media all and (max-width: 768px) {
+@media all and (max-width: 1500px) {
   #home #loader .loader_title p {
     font-family: 'Henny', sans-serif;
     letter-spacing: 10px;
@@ -233,7 +237,7 @@ body {
   text-shadow: 0px 3px 4px #00000073;
 }
 
-@media all and (max-width: 768px) {
+@media all and (max-width: 1500px) {
 
   .btn_play,
   .btn_option,
@@ -293,7 +297,7 @@ body {
 
 #home .chest_shop {
   position: relative;
-  width: 50px;
+  width: 26px;
   height: auto;
   z-index: 9;
   top: 40px;
@@ -400,10 +404,10 @@ body {
 /***** LOADER *****/
 
 .ajax-loader img {
-  max-width: 400px;
+  max-width: 250px;
 }
 
-@media all and (max-width: 768px) {
+@media all and (max-width: 1500px) {
   .ajax-loader img {
     width: 100%;
   }
@@ -579,7 +583,7 @@ body {
   margin: 5vw auto;
 }
 
-@media all and (max-width: 768px) {
+@media all and (max-width: 1500px) {
   #home #menu .row .col:nth-child(1) {
     margin: 5vw auto;
     padding: 0 6vw;
@@ -591,11 +595,11 @@ body {
   padding: 1vw;
   margin: 0 auto;
   box-shadow: 0px 2px 8px 4px #acbfbf87;
-  min-height: 450px;
+  min-height: 426px;
   background: #acbfbf87;
 }
 
-@media all and (max-width: 768px) {
+@media all and (max-width: 1500px) {
   #home #option .box {
     width: 100%;
     background: transparent;
@@ -611,15 +615,15 @@ body {
   letter-spacing: 10px;
 }
 
-@media all and (max-width: 768px) {
+@media all and (max-width: 1500px) {
   #home #option .box h2 {
-    font-size: 18px;
+    font-size: 26px;
   }
 }
 
 #home #option .box .body {
   width: 100%;
-  min-height: 250px;
+  min-height: 226px;
   border-top: 3px dashed #505050;
   padding: 25px 0 0 0;
 }
@@ -637,7 +641,7 @@ body {
   background: transparent;
 }
 
-@media all and (max-width: 768px) {
+@media all and (max-width: 1500px) {
   #slider {
     background: #ffffff00 !important;
   }
@@ -723,7 +727,7 @@ input[type="range"]:active~#soundGeneralValue {
   border: 1px solid #cfd3d6;
   box-shadow: inset 0px 1px 1px 0px #d5ebe8, 0px 2px 4px 0px #00000047;
   border-radius: 20px;
-  width: 50px;
+  width: 26px;
   background: #00000096;
   opacity: 0;
   transition: all 0.5s ease;
@@ -785,7 +789,7 @@ input[type="range"]:focus {
   background: #eab975b0;
 }
 
-@media all and (max-width: 768px) {
+@media all and (max-width: 1500px) {
   #home .classement {
     min-height: auto;
   }
@@ -800,7 +804,7 @@ input[type="range"]:focus {
   font-weight: bold;
 }
 
-@media all and (max-width: 768px) {
+@media all and (max-width: 1500px) {
   #home .classement h2 {
     font-size: 15px;
     padding: 20px 10px;
@@ -815,7 +819,7 @@ input[type="range"]:focus {
   overflow-y: auto;
 }
 
-@media all and (max-width: 768px) {
+@media all and (max-width: 1500px) {
   #home .classement .body {
     overflow-x: auto;
   }
@@ -829,7 +833,7 @@ input[type="range"]:focus {
   border-bottom-right-radius: 16px;
 }
 
-@media all and (max-width: 768px) {
+@media all and (max-width: 1500px) {
   #home .classement table {
     border: 0;
   }
@@ -915,7 +919,7 @@ input[type="range"]:focus {
   width: 25px;
 }
 
-@media all and (max-width: 768px) {
+@media all and (max-width: 1500px) {
   #home .classement h2 span img {
     width: 17px;
   }
@@ -959,7 +963,7 @@ input[type="range"]:focus {
   color: transparent;
 }
 
-@media all and (max-width: 768px) {
+@media all and (max-width: 1500px) {
   .show_mobile {
     display: block !important;
     margin-bottom: 7vw;
@@ -1002,7 +1006,7 @@ input[type="range"]:focus {
   color: rgb(145 139 139) !important;
 }
 
-@media all and (max-width: 768px) {
+@media all and (max-width: 1500px) {
   .copyright {
     display: block;
     width: 100% !important;
@@ -1024,7 +1028,7 @@ input[type="range"]:focus {
   margin: 5vw auto;
 }
 
-@media all and (max-width: 768px) {
+@media all and (max-width: 1500px) {
   #bug .row .col:nth-child(1) {
     margin: 5vw auto;
     padding: 0 6vw;
@@ -1036,11 +1040,11 @@ input[type="range"]:focus {
   padding: 1vw;
   margin: 0 auto;
   box-shadow: 0px 2px 8px 4px #acbfbf87;
-  min-height: 450px;
+  min-height: 426px;
   background: #acbfbf87;
 }
 
-@media all and (max-width: 768px) {
+@media all and (max-width: 1500px) {
   #bug .box {
     width: 100%;
     background: transparent;
@@ -1056,15 +1060,15 @@ input[type="range"]:focus {
   letter-spacing: 10px;
 }
 
-@media all and (max-width: 768px) {
+@media all and (max-width: 1500px) {
   #bug .box h2 {
-    font-size: 18px;
+    font-size: 26px;
   }
 }
 
 #bug .box .body {
   width: 100%;
-  min-height: 250px;
+  min-height: 226px;
   border-top: 3px dashed #505050;
   padding: 25px 0 0 0;
 }
@@ -1125,7 +1129,7 @@ textarea {
 
 #bug textarea {
   cursor: url('../../public/cursor/cursor-1.png'), pointer;
-  min-height: 150px;
+  min-height: 126px;
   font-size: 12px !important;
   letter-spacing: 1px !important;
   resize: vertical;
@@ -1215,7 +1219,7 @@ select:-webkit-autofill:focus {
   margin: 5vw auto;
 }
 
-@media all and (max-width: 768px) {
+@media all and (max-width: 1500px) {
   #home #new_game .row .col:nth-child(1) {
     margin: 5vw auto;
     padding: 0 6vw;
@@ -1227,11 +1231,11 @@ select:-webkit-autofill:focus {
   padding: 1vw;
   margin: 0 auto;
   box-shadow: 0px 2px 8px 4px #acbfbf87;
-  min-height: 450px;
+  min-height: 426px;
   background: #acbfbf87;
 }
 
-@media all and (max-width: 768px) {
+@media all and (max-width: 1500px) {
   #home #new_game .box {
     width: 100%;
     background: transparent;
@@ -1247,15 +1251,15 @@ select:-webkit-autofill:focus {
   letter-spacing: 10px;
 }
 
-@media all and (max-width: 768px) {
+@media all and (max-width: 1500px) {
   #home #bug .box h2 {
-    font-size: 18px;
+    font-size: 26px;
   }
 }
 
 #home #new_game .box .body {
   width: 100%;
-  min-height: 250px;
+  min-height: 226px;
   border-top: 3px dashed #505050;
   padding: 25px 0 0 0;
 }
@@ -1337,7 +1341,7 @@ textarea {
   margin: 0 auto;
 }
 
-@media all and (max-width: 768px) {
+@media all and (max-width: 1500px) {
   #home #aide {
     min-height: auto;
     padding: 6vw;
@@ -1364,16 +1368,16 @@ textarea {
   font-weight: bold;
 }
 
-@media all and (max-width: 768px) {
+@media all and (max-width: 1500px) {
   #home #aide h3 {
     font-size: 16px;
     padding: 10px;
   }
 }
 
-@media all and (max-width: 768px) {
+@media all and (max-width: 1500px) {
   #home #aide h2 {
-    font-size: 18px;
+    font-size: 26px;
     line-height: 38px;
     padding: 10px;
   }
@@ -1383,7 +1387,7 @@ textarea {
   margin: 6vw auto 0 auto;
 }
 
-@media all and (max-width: 768px) {
+@media all and (max-width: 1500px) {
   #home #aide .row .col:nth-child(1) {
     display: block;
   }
@@ -1401,7 +1405,7 @@ textarea {
   justify-items: center;
 }
 
-@media all and (max-width: 768px) {
+@media all and (max-width: 1500px) {
   #home #aide .aide_grid {
     grid-template-columns: 1fr !important;
   }
@@ -1498,7 +1502,7 @@ textarea {
 }
 
 #home #aide #btn_quit_aide {
-  width: 250px;
+  width: 226px;
 }
 
 #home .new_game_loader {
@@ -1514,11 +1518,11 @@ textarea {
   margin: 1vw 0 0 0;
   font-family: 'Henny', sans-serif;
   letter-spacing: 5px;
-  font-size: 27px;
+  font-size: 18px;
   font-weight: bold;
 }
 
-@media all and (max-width: 768px) {
+@media all and (max-width: 1500px) {
   #home .new_game_loader {
     margin: 0 0;
   }
@@ -1535,7 +1539,7 @@ textarea {
   margin: 5vw auto;
 }
 
-@media all and (max-width: 768px) {
+@media all and (max-width: 1500px) {
   #home #login_game .row .col:nth-child(1) {
     margin: 5vw auto;
     padding: 0 6vw;
@@ -1547,11 +1551,11 @@ textarea {
   padding: 1vw;
   margin: 0 auto;
   box-shadow: 0px 2px 8px 4px #acbfbf87;
-  min-height: 450px;
+  min-height: 426px;
   background: #acbfbf87;
 }
 
-@media all and (max-width: 768px) {
+@media all and (max-width: 1500px) {
   #home #login_game .box {
     width: 100%;
     background: transparent;
@@ -1567,15 +1571,15 @@ textarea {
   letter-spacing: 10px;
 }
 
-@media all and (max-width: 768px) {
+@media all and (max-width: 1500px) {
   #home #login_game .box h2 {
-    font-size: 18px;
+    font-size: 26px;
   }
 }
 
 #home #login_game .box .body {
   width: 100%;
-  min-height: 250px;
+  min-height: 226px;
   border-top: 3px dashed #505050;
   padding: 25px 0 0 0;
 }
@@ -1668,8 +1672,16 @@ textarea {
   display: none;
 }
 
-@media all and (max-width: 768px) {
+.shop .beforePay {
+  display: none;
+}
+
+@media all and (max-width: 1500px) {
   .shop {
+    min-height: auto;
+  }
+
+  .shop .beforePay {
     min-height: auto;
   }
 }
@@ -1685,7 +1697,7 @@ textarea {
   font-weight: bold;
 }
 
-@media all and (max-width: 768px) {
+@media all and (max-width: 1500px) {
   .shop h2 {
     font-size: 15px;
     padding: 20px 10px;
@@ -1698,10 +1710,11 @@ textarea {
   border-top: 3px dashed #505050;
   padding: 20px 0;
   overflow-y: auto;
+  padding-bottom: 0;
   max-height: 669px;
 }
 
-@media all and (max-width: 768px) {
+@media all and (max-width: 1500px) {
   .shop .body {
     overflow-x: auto;
   }
@@ -1715,7 +1728,7 @@ textarea {
   width: 25px;
 }
 
-@media all and (max-width: 768px) {
+@media all and (max-width: 1500px) {
   .shop h2 span img {
     width: 17px;
   }
@@ -1739,12 +1752,12 @@ textarea {
   grid-gap: 30px;
 }
 
-@media all and (max-width: 768px) {
+@media all and (max-width: 1500px) {
 
   .shop .grid_shop {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    grid-gap: 50px;
+    grid-gap: 26px;
   }
 }
 
@@ -1782,7 +1795,7 @@ textarea {
 }
 
 .shop .grid_sorter .item:nth-child(3) img {
-  width: 18px;
+  width: 26px;
 }
 
 .shop .grid_sorter .item span {
@@ -1920,7 +1933,7 @@ textarea {
   margin: 5vw auto;
 }
 
-@media all and (max-width: 768px) {
+@media all and (max-width: 1500px) {
   #shop .row .col:nth-child(1) {
     margin: 5vw auto;
     padding: 0 6vw;
@@ -1932,11 +1945,11 @@ textarea {
   padding: 1vw;
   margin: 0 auto;
   box-shadow: 0px 2px 8px 4px #acbfbf87;
-  min-height: 450px;
+  min-height: 426px;
   background: #acbfbf87;
 }
 
-@media all and (max-width: 768px) {
+@media all and (max-width: 1500px) {
   #shop .box {
     width: 100%;
     background: transparent;
@@ -1950,7 +1963,7 @@ textarea {
   margin: 0 auto;
 }
 
-@media all and (max-width: 768px) {
+@media all and (max-width: 1500px) {
 
   #shop .login_shop {
     width: 100%;
@@ -1972,15 +1985,15 @@ textarea {
   letter-spacing: 10px;
 }
 
-@media all and (max-width: 768px) {
+@media all and (max-width: 1500px) {
   #shop .box h2 {
-    font-size: 18px;
+    font-size: 26px;
   }
 }
 
 #shop .box .body {
   width: 100%;
-  min-height: 250px;
+  min-height: 226px;
   border-top: 3px dashed #505050;
   padding: 25px 0 0 0;
 }
@@ -2057,12 +2070,12 @@ textarea {
 
 .decouvrir h2 {
   font-family: 'Fruktur', cursive;
-  font-size: 50px;
+  font-size: 26px;
   letter-spacing: 5px;
   text-transform: capitalize;
 }
 
-@media all and (max-width: 768px) {
+@media all and (max-width: 1500px) {
   .decouvrir h2 {
     font-family: 'Fruktur', cursive;
     font-size: 26px;
@@ -2100,7 +2113,7 @@ textarea {
   max-width: 175px;
 }
 
-@media all and (max-width: 768px) {
+@media all and (max-width: 1500px) {
   .decouvrir img {
     margin: auto;
     margin: 0 0;
@@ -2135,7 +2148,7 @@ textarea {
   margin: 0 0 0 0 !important;
 }
 
-@media all and (max-width: 768px) {
+@media all and (max-width: 1500px) {
   .decouvrir .diamond {
     animation: none;
     margin: 40px 0 0 0 !important;
@@ -2179,7 +2192,7 @@ textarea {
 #card-error {
   color: rgb(105, 115, 134);
   text-align: left;
-  font-size: 13px;
+  font-size: 26px;
   line-height: 17px;
   margin-top: 12px;
 }
@@ -2197,7 +2210,7 @@ textarea {
   margin-bottom: 20px;
 }
 
-@media all and (max-width: 768px) {
+@media all and (max-width: 1500px) {
   #card-element {
     width: 90%;
   }
@@ -2245,18 +2258,24 @@ textarea {
   margin: 0 auto;
 }
 
+.shop .after_paiement img {
+  max-width: 90px;
+}
+
 .shop .after_paiement h2 {
   margin: 20px 0;
+  margin-bottom: 0 !important;
 }
 
 .shop .after_paiement p {
-  padding: inherit;
   margin: 20px auto;
   font-family: 'Henny', sans-serif;
   letter-spacing: 5px;
   color: white;
   font-size: 16px;
   font-weight: 600;
+  padding-top: 0;
+  margin-top: 0;
 }
 
 .shop .error_input {
@@ -2288,7 +2307,7 @@ textarea {
   text-align: center;
 }
 
-@media all and (max-width: 768px) {
+@media all and (max-width: 1500px) {
   ._404 {
     padding: 0 6vw;
   }
@@ -2314,7 +2333,7 @@ textarea {
   font-weight: 600;
 }
 
-@media all and (max-width: 768px) {
+@media all and (max-width: 1500px) {
   ._404 img {
     width: 100%
   }
@@ -2687,7 +2706,7 @@ textarea {
   margin: 5vw auto;
 }
 
-@media all and (max-width: 768px) {
+@media all and (max-width: 1500px) {
   #contact .row .col:nth-child(1) {
     margin: 5vw auto;
     padding: 0 6vw;
@@ -2699,11 +2718,11 @@ textarea {
   padding: 1vw;
   margin: 0 auto;
   box-shadow: 0px 2px 8px 4px #acbfbf87;
-  min-height: 450px;
+  min-height: 426px;
   background: #acbfbf87;
 }
 
-@media all and (max-width: 768px) {
+@media all and (max-width: 1500px) {
   #contact .box {
     width: 100%;
     background: transparent;
@@ -2719,15 +2738,15 @@ textarea {
   letter-spacing: 10px;
 }
 
-@media all and (max-width: 768px) {
+@media all and (max-width: 1500px) {
   #contact .box h2 {
-    font-size: 18px;
+    font-size: 26px;
   }
 }
 
 #contact .box .body {
   width: 100%;
-  min-height: 250px;
+  min-height: 226px;
   border-top: 3px dashed #505050;
   padding: 25px 0 0 0;
 }
@@ -2788,7 +2807,7 @@ textarea {
 
 #contact textarea {
   cursor: url('../../public/cursor/cursor-1.png'), pointer;
-  min-height: 150px;
+  min-height: 126px;
   font-size: 12px !important;
   letter-spacing: 1px !important;
   resize: vertical;
@@ -2814,7 +2833,7 @@ textarea {
   width: 50%;
 }
 
-@media all and (max-width: 768px) {
+@media all and (max-width: 1500px) {
 
   .iframe_facebook {
     display: none;
@@ -2858,7 +2877,7 @@ textarea {
 /* Carousel */
 
 .carousel {
-  max-width: 990px;
+  max-width: 380px;
   margin: 0 auto;
 }
 
@@ -2873,7 +2892,8 @@ textarea {
 .cards .row {
   justify-content: center;
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
+  height: auto;
 }
 
 .card {
@@ -2934,7 +2954,7 @@ textarea {
   padding: 0 0;
 }
 
-@media all and (max-width: 768px) {
+@media all and (max-width: 1500px) {
   .avis {
     max-width: 100%;
     width: 100% !important;
@@ -2973,7 +2993,7 @@ textarea {
   margin: 10px 0;
   text-align: right;
   width: 100%;
-  font-size: 13px;
+  font-size: 16px;
   color: #909090;
   font-weight: 600;
 }
@@ -2981,12 +3001,12 @@ textarea {
 .title_avis,
 .title_start {
   font-family: 'Fruktur', cursive;
-  font-size: 50px;
+  font-size: 26px;
   letter-spacing: 5px;
   text-transform: capitalize;
 }
 
-@media all and (max-width: 768px) {
+@media all and (max-width: 1500px) {
 
   .title_avis,
   .title_start {
@@ -3025,4 +3045,79 @@ textarea {
   align-items: center;
   gap: 10px;
   padding: 0 6px;
+}
+
+.gcard img,
+.gpay img,
+.bpaypal img {
+  max-width: 50px;
+  filter: drop-shadow(0 0 5px #ffffff7d);
+}
+
+.gcard p,
+.gpay p,
+.bpaypal p {
+  color: white;
+  font-family: "Henny", sans-serif;
+  font-size: 18px;
+  letter-spacing: 2px;
+  margin: 0 0;
+}
+
+.gcard,
+.gpay,
+.bpaypal {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 28px;
+  padding: 10px 0;
+  border: 1px solid #fff;
+  max-width: 280px;
+  margin: 35px auto;
+  border-radius: 10px;
+  box-shadow: 0px 0px 6px 0px #ffffff47;
+  transition: 1s all;
+  animation: 4050ms pulse infinite;
+}
+
+.pay .header {
+  padding-top: 20px;
+}
+
+.gPayScreen {
+  display: none;
+}
+
+.paypalScreen {
+  display: none;
+}
+
+.paypalScreen .header {
+  padding-top: 20px;
+}
+
+#paypal-button-container {
+  max-width: 300px;
+  color: white;
+  margin: 0 auto;
+}
+
+#paypal-button-container .paypal-button-text.true {
+  color: white !important;
+}
+
+
+.cards .row .mb-4,
+.cards .row .mb-4 .card {
+  min-height: 191px
+}
+
+.empty_coin img {
+  max-width: 250px;
+}
+
+.close_chest_bonus {
+  background: #ffffff6b !important;
+  line-height: 4.5 !important;
 }

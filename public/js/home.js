@@ -44,15 +44,6 @@ setTimeout(() => {
     }
   })
 
-  $.ajax({
-    url: 'https://funkids.site/ajax/ajax-showShop.php',
-    success: function (data) {
-
-      $('.grid_shop').html(data)
-
-    }
-  })
-
   var sound_1 = document.getElementById("sound_1"),
     clic_1 = document.getElementById("clic_1"),
     timeout_1 = 500;
@@ -87,12 +78,9 @@ setTimeout(() => {
     playAudioClic();
     playAudio();
 
-    setTimeout(() => {
+    $(this).fadeOut();
 
-      $(this).hide();
-      $('#home #loader').show();
-
-    }, timeout_1);
+    $('#home #loader').fadeIn(600);
 
     setTimeout(() => {
 
@@ -263,6 +251,7 @@ setTimeout(() => {
     $('#home #login_game').hide();
     $('#home #aide').hide();
     $('#home #bug').show();
+    $('#home #contact').hide()
 
   })
 
@@ -594,6 +583,15 @@ setTimeout(() => {
     $('#home #shop').fadeIn();
     $('#menu .row .col:first-child').hide()
 
+    $.ajax({
+      url: 'https://funkids.site/ajax/ajax-showShop.php',
+      success: function (data) {
+
+        $('.grid_shop').html(data)
+
+      }
+    })
+
   })
 
   $(document).on('click', '#btn_shop', function (e) {
@@ -609,6 +607,15 @@ setTimeout(() => {
     $('html, body').animate({
       scrollTop: $("html").offset().top
     }, "slow");
+
+    $.ajax({
+      url: 'https://funkids.site/ajax/ajax-showShop.php',
+      success: function (data) {
+
+        $('.grid_shop').html(data)
+
+      }
+    })
 
   })
 
@@ -675,15 +682,137 @@ setTimeout(() => {
   $(document).on('click', '.btn_shop_item', function (e) {
 
     e.preventDefault();
-
     playAudioClic();
 
     var item = $(this).data('item'),
       item_name = $(this).data('name'),
+      item_id = $(this).data('id'),
       item_price = $(this).data('price'),
       item_price_amount = $(this).data('amount'),
       pseudo = $('input[name=pseudo_shop_login]').val(),
       item_image = $(this).data('image');
+
+    $('.footer_grid_shop').hide();
+    $('.grid_shop').hide();
+    $('.grid_sorter').hide();
+
+    $('.beforePay').fadeIn(300);
+
+    $('.beforePay .d_back_items').show();
+    $('.beforePay .header').show();
+
+    $(document).on('click', '.gcard', function (e) {
+
+      e.preventDefault();
+
+      playAudioClic();
+
+      $('.gPayScreen').hide();
+      $('.paypalScreen').hide();
+
+      cardPay(item, item_name, item_price, item_price_amount, pseudo, item_image);
+
+    })
+
+    $(document).on('click', '.gpay', function (e) {
+
+      e.preventDefault();
+
+      playAudioClic();
+
+      $('.beforePay').hide();
+      $('.pay').hide();
+      $('.paypalScreen').hide();
+      $('.grid_shop').hide();
+      $('.grid_sorter').hide();
+
+      $('.gPayScreen').fadeIn(300);
+
+      gPay(item_name, item_id);
+
+    })
+
+    $(document).on('click', '.bpaypal', function (e) {
+
+      e.preventDefault();
+
+      playAudioClic();
+
+    })
+
+  })
+
+  function gPay(item_name, item_id) {
+
+    document.addEventListener('deviceready', initStore(item_name, item_id));
+    document.addEventListener('deviceready', refreshGoldCoinsUI);
+
+    $('.gPayScreen .d_back_items').show();
+    $('.gPayScreen .header').show();
+
+  }
+
+  function initStore(item_name, item_id) {
+
+    if (!window.store) {
+      $('.gerror').html('Store not available');
+      return;
+    }
+
+    store.verbosity = store.INFO;
+    store.register({
+      id: item_id,
+      alias: item_name,
+      type: store.CONSUMABLE
+    });
+
+    store.error(function (error) {
+      $('.gerror').html('ERROR ' + error.code + ': ' + error.message);
+    });
+
+    store.when('my_consumable1').updated(refreshProductUI);
+    store.when('my_consumable1').approved(function (p) {
+      $('.gerror').html(p);
+      p.verify();
+    });
+    store.when('my_consumable1').verified(finishPurchase);
+
+    store.refresh();
+  }
+
+  function refreshGoldCoinsUI() {
+    document.getElementById('gold-coins').innerHTML =
+      '50 l\'ingots : <strong>' + (window.localStorage.goldCoins | 0) + '</strong>';
+  }
+
+  function refreshProductUI(product) {
+    $('.gerror').html(product);
+    const info = product.loaded ?
+      `<h1>${product.title}</h1>` +
+      `<p>${product.description}</p>` +
+      `<p>${product.price}</p>` :
+      '<p>Retrieving info...</p>';
+    const button = product.canPurchase ?
+      '<button onclick="purchaseConsumable1()">Acheter !</button>' :
+      '';
+    const el = document.getElementById('consumable1-purchase');
+    el.innerHTML = info + button;
+  }
+
+  function purchaseConsumable1() {
+    store.order('my_consumable1');
+  }
+
+  function finishPurchase(p) {
+    // window.localStorage.goldCoins = (window.localStorage.goldCoins | 0) + 10;
+    $('.gerror').html(p);
+    p.finish();
+    refreshGoldCoinsUI();
+  }
+
+  function cardPay(item, item_name, item_price, item_price_amount, pseudo, item_image) {
+
+    $('.beforePay').hide();
 
     $('.footer_grid_shop').hide();
 
@@ -701,7 +830,6 @@ setTimeout(() => {
     $('.pay .header').show();
     $('.pay .stripe').show();
 
-
     // Paiement
     var prod = "pk_live_51KZXrwFGWvBXDlKDZbQHkmfwDDBht2rZ8mNw6Cktwn8bHTsnoQeYY8Y7qpkZYmO8Fm2A0mhVX3w2VNTUNkq6CKdQ00B6eEJ0jW",
       stripe,
@@ -716,7 +844,6 @@ setTimeout(() => {
         description: 'Motif : ' + item_name + ' - Total : ' + item_price + ' - ' + ' Personnage : ' + pseudo
       }]
     };
-
 
     // A reference to Stripe.js initialized with your real test publishable API key.
     stripe = Stripe(api);
@@ -846,8 +973,8 @@ setTimeout(() => {
           $('.pay .header').remove();
 
           $('.after_paiement img').attr('src', 'https://funkids.site/assets/img/check.png');
-          $('.after_paiement h2').html('Ton paiement est accepter');
-          $('.after_paiement p').html('Ton compte à été créditer de <span class="credit"></span>.<br/><br/>');
+          $('.after_paiement h2').html('Ton paiement est accepté.');
+          $('.after_paiement p').html('Ton compte a été crédité de <span class="credit"></span>.<br/><br/>');
           $('.after_paiement p').append('Tu as reçu un email de récapitulatif de ta commande.');
 
           $('.after_paiement .credit').html(item_name);
@@ -1002,7 +1129,7 @@ setTimeout(() => {
       });
     };
 
-  })
+  }
 
   $(document).on('click', '#quit_shop_login', function (e) {
 
@@ -1073,7 +1200,6 @@ setTimeout(() => {
     }
 
   })
-
 
   $(document).on('click', '#quit_contact', function (e) {
 

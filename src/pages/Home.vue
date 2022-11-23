@@ -17,11 +17,6 @@
 
   <div id="home" :style="(loader) ? 'display:none;' : 'display:block;'">
 
-    <div id="console"></div>
-
-    <p id="gold-coins">L'ingot :</p>
-    <div id="consumable1-purchase">Please wait...</div>
-
     <!-- Loading -->
     <loading />
 
@@ -92,10 +87,8 @@ setTimeout(() => {
 }, 1000);
 
 import home from '../../public/js/home.js';
-import shop from '../../public/js/shop.js';
 
 home;
-shop;
 
 export default defineComponent({
   name: 'HomePage',

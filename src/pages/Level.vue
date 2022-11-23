@@ -18,7 +18,9 @@ import copyright from '../components/home/copyright.vue'
 
 import css from '../css/level.scss';
 import js from '../../public/js/level.js';
+import home from '../../public/js/home.js';
 
+home;
 css;
 js;
 

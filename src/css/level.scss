@@ -437,25 +437,47 @@ td {
   filter: drop-shadow(0 3px 5px #ffaf26);
 }
 
+.bombe_implode {
+  transform: initial;
+  animation-name: BombeExplode;
+  animation-duration: 2s;
+  animation-timing-function: ease-out;
+  animation-direction: alternate;
+  animation-iteration-count: 1;
+  animation-play-state: running;
+  filter: drop-shadow(0 3px 5px #ff4e26);
+}
+
+.bombe2_implode {
+  transform: initial;
+  animation-name: BombeExplode2;
+  animation-duration: 2s;
+  animation-timing-function: ease-out;
+  animation-direction: alternate;
+  animation-iteration-count: infinite;
+  animation-play-state: running;
+  filter: drop-shadow(0 3px 5px #ff2626);
+}
+
 .disabled {
   opacity: 0.5;
   pointer-events: none;
 }
 
 .chest {
-  background: url('../../public/img/level/chest_open.png');
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: 50px;
-  opacity: 1;
-  z-index: 1;
-  background-size: 50px;
-  width: 80px;
-  height: 80px;
-  top: -80px;
-  left: 0;
-  transform: rotate(0deg);
-  position: relative;
+  background: url('../../public/img/level/chest_open.png') !important;
+  background-repeat: no-repeat !important;
+  background-position: center !important;
+  background-size: 50px !important;
+  opacity: 1 !important;
+  z-index: 1 !important;
+  background-size: 50px !important;
+  width: 50px !important;
+  height: 50px !important;
+  top: -50px !important;
+  left: -2px !important;
+  transform: rotate(0deg) !important;
+  position: relative !important;
 }
 
 @keyframes ChestBonus {
@@ -481,6 +503,253 @@ td {
     transform: translate3d(0, 4px, 0);
   }
 
+}
+
+@keyframes PotionExplode {
+
+  10%,
+  90% {
+    transform: translate3d(0, 1px, 0);
+  }
+
+  20%,
+  80% {
+    transform: translate3d(0, 2px, 0);
+  }
+
+  30%,
+  50%,
+  70% {
+    transform: translate3d(0, -4px, 0);
+  }
+
+  40%,
+  60% {
+    transform: translate3d(0, 4px, 0);
+  }
+
+}
+
+
+@keyframes BombeExplode {
+
+  0% {
+    transform: scale(0.75) + rotate(0deg);
+  }
+
+  70% {
+    transform: scale(2) + rotate(360deg);
+  }
+
+  100% {
+    transform: scale(0.75) + rotate(-360deg);
+  }
+
+}
+
+@keyframes BombeExplode2 {
+
+  0% {
+    transform: rotate(-0.8);
+  }
+
+  100% {
+    transform: scale(2)
+  }
+
+}
+
+.bombe.bombe_explode {
+  background: url('../../public/img/level/explosion1.gif') !important;
+  background-repeat: no-repeat !important;
+  background-position: center !important;
+  z-index: 10 !important;
+  background-size: 100% !important;
+  min-width: 100% !important;
+  min-height: 100% !important;
+  top: 0 !important;
+  left: 0 !important;
+  transform: none !important;
+  position: fixed !important;
+  filter: opacity(0.8);
+  animation: fadeIn2 1s linear
+}
+
+
+.bombe_2.bombe2_explode {
+  background: url('../../public/img/level/explosion2.gif') !important;
+  background-repeat: no-repeat !important;
+  background-color: #000000 !important;
+  background-position: center !important;
+  z-index: 10 !important;
+  background-size: 100% !important;
+  min-width: 100% !important;
+  min-height: 100% !important;
+  top: 0 !important;
+  left: 0 !important;
+  transform: none !important;
+  position: fixed !important;
+  filter: opacity(0.8);
+  animation: fadeIn2 1s linear
+}
+
+.potion2_implode {
+  transform: initial;
+  animation: wiggle 1.5s infinite;
+  filter: drop-shadow(0 3px 5px transparent);
+}
+
+@keyframes wiggle {
+  0% {
+    transform: rotate(0deg);
+    filter: drop-shadow(0 3px 5px transparent) !important;
+  }
+
+  80% {
+    transform: rotate(0deg);
+    filter: drop-shadow(0 3px 5px transparent) !important;
+  }
+
+  85% {
+    transform: rotate(15deg);
+    filter: drop-shadow(0 3px 5px #084298) !important;
+  }
+
+  95% {
+    transform: rotate(-15deg);
+    filter: drop-shadow(0 3px 5px #084298) !important;
+  }
+
+  100% {
+    transform: rotate(0deg);
+    filter: drop-shadow(0 3px 5px transparent) !important;
+  }
+}
+
+.monstre_1.monstre_explode {
+  background: url('../../public/img/level/animationmonstre1.gif') !important;
+  background-repeat: no-repeat !important;
+  background-position: center !important;
+  z-index: 10 !important;
+  background-size: 100% !important;
+  min-width: 100% !important;
+  min-height: 100% !important;
+  top: 0 !important;
+  left: 0 !important;
+  transform: none !important;
+  position: fixed !important;
+  filter: opacity(1);
+  animation: fadeIn 2s linear;
+}
+
+.monstre_2.monstre2_explode {
+  background: url('../../public/img/level/animationmonstre2.gif') !important;
+  background-repeat: no-repeat !important;
+  background-position: center !important;
+  z-index: 10 !important;
+  background-size: 100% !important;
+  min-width: 100% !important;
+  min-height: 100% !important;
+  top: 0 !important;
+  left: 0 !important;
+  transform: none !important;
+  position: fixed !important;
+  filter: opacity(1);
+  animation: fadeIn 2s linear;
+}
+
+.potion_2.potion2_explode {
+  background: url('../../public/img/level/animationpotion2.gif') !important;
+  background-repeat: no-repeat !important;
+  background-position: center !important;
+  background-color: #000000 !important;
+  z-index: 10 !important;
+  background-size: 100% !important;
+  min-width: 100% !important;
+  min-height: 100% !important;
+  top: 0 !important;
+  left: 0 !important;
+  position: fixed !important;
+  filter: opacity(0.8);
+  animation: fadeIn 2s linear;
+}
+
+.potion_1.potion_explode {
+  background: url('../../public/img/level/animationpotion1.gif') !important;
+  background-repeat: no-repeat !important;
+  background-position: center !important;
+  background-color: #000000 !important;
+  z-index: 10 !important;
+  background-size: 100% !important;
+  min-width: 100% !important;
+  min-height: 100% !important;
+  top: 0 !important;
+  left: 0 !important;
+  transform: none !important;
+  position: fixed !important;
+  filter: opacity(0.8);
+  animation: fadeIn 2s linear;
+}
+
+@keyframes fadeIn {
+  0% {
+    filter: opacity(0);
+  }
+
+  100% {
+    filter: opacity(0.8);
+  }
+}
+
+@keyframes fadeOut {
+  0% {
+    filter: opacity(0.8);
+  }
+
+  100% {
+    filter: opacity(0);
+  }
+}
+
+@keyframes fadeIn2 {
+  0% {
+    filter: opacity(0);
+  }
+
+  100% {
+    filter: opacity(0.8);
+  }
+}
+
+@keyframes fadeOut2 {
+  0% {
+    filter: opacity(1);
+  }
+
+  100% {
+    filter: opacity(0);
+  }
+}
+
+@keyframes fadeIn3 {
+  0% {
+    filter: opacity(0);
+  }
+
+  100% {
+    filter: opacity(0.8);
+  }
+
+}
+
+@keyframes fadeOut3 {
+  0% {
+    filter: opacity(0.8);
+  }
+
+  100% {
+    filter: opacity(0);
+  }
 }
 
 .chest_opening {
@@ -619,7 +888,7 @@ td {
 .card_game {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
-  grid-gap: 30px;
+  grid-gap: 10px;
   margin: 30px 0;
 }
 
@@ -630,7 +899,7 @@ td {
   background-size: contain;
   display: block;
   width: 100%;
-  height: 300px;
+  height: 240px;
   filter: drop-shadow(0 5px 7px black);
   animation: cards 3s infinite;
   transition: 1s all;
@@ -665,7 +934,7 @@ td {
   display: block;
   width: 100%;
   transition: 1s all;
-  height: 300px;
+  height: 240px;
 }
 
 .card_game .card_item {
@@ -694,6 +963,18 @@ td {
   z-index: 1;
 }
 
+.play_after .empty_coin .btn_play {
+  width: 100%;
+  margin: 0 auto;
+  max-width: 250px;
+}
+
+.play_after #next_level {
+  width: 100%;
+  margin: 0 auto;
+  max-width: 250px;
+}
+
 .btn_play {
   background: #000000ad;
   box-shadow: 4px 4px 0px #00000017;
@@ -712,4 +993,43 @@ td {
   background: #000000ad;
   transform: translateY(0);
   text-shadow: 0px 3px 4px #00000073;
+}
+
+.particle_cards {
+  display: none;
+  transition: all 2s;
+}
+
+.particle_cards {
+  background: url('../../public/img/level/particlecard.gif') !important;
+  background-repeat: no-repeat !important;
+  background-position: center !important;
+  z-index: 10 !important;
+  max-width: 100px !important;
+  max-height: 164px !important;
+  height: 188px;
+  border-radius: 4px;
+  top: 58px !important;
+  left: 36px !important;
+  position: relative !important;
+  filter: opacity(0.6);
+  animation: fadeIn 1s linear;
+}
+
+.cards_disabled {
+  pointer-events: none;
+}
+
+.update_attempting {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-weight: 700;
+  font-family: "Henny", sans-serif;
+  letter-spacing: 2px;
+  font-size: 22px;
+}
+
+.update_attempting img {
+  max-width: 300px;
 }
