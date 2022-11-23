@@ -59,7 +59,7 @@
             <p>Carte banquaire</p>
           </div>
 
-          <div class="gpay">
+          <div class="gpay" style="display: none;">
             <img src="../../../public/img/gpay.png" alt="">
             <p>Achats intégrés</p>
           </div>
@@ -83,8 +83,9 @@
 
         <div class="header">
 
-          <p id="gold-coins">L\'ingot :</p>
-          <div id="consumable1-purchase">Please wait...</div>
+          <p id="gold-coins">L'ingot :</p>
+
+          <div id="consumable1-purchase"></div>
 
           <div class="gerror"></div>
 

@@ -1,21 +1,6 @@
 <template>
 
-  <div class="div" :style="(loader) ? '' : 'display:none;'">
-    <div id="wrapper">
-      <div class="loader">
-      </div>
-      <div class="loading-bar">
-        <div class="progress-bar"></div>
-      </div>
-      <div class="status">
-        <div class="state"></div>
-        <div class="percentage"></div>
-      </div>
-    </div>
-  </div>
-
-
-  <div id="home" :style="(loader) ? 'display:none;' : 'display:block;'">
+  <div id="home" class="fadeIn opacity">
 
     <!-- Loading -->
     <loading />
@@ -70,21 +55,13 @@ import contact from '../components/home/contact.vue'
 import aide from '../components/home/aide.vue'
 import copyright from '../components/home/copyright.vue'
 
-$('body').attr('style', "background: url('../img/backgrounds/fondloader.webp') !important;background-repeat: no-repeat !important;background-size: cover !important;background-position: center; transition: all 2ms;");
-
 setTimeout(() => {
   $('body').attr('style', ' background: url(../img/background-1.webp) no-repeat center;background-attachment: fixed;');
-}, 5500);
+}, 2000);
 
 setTimeout(() => {
-
-  var myCarousel = document.querySelector('#caroussel')
-  var carousel = new bootstrap.Carousel(myCarousel, {
-    interval: 3000,
-    wrap: true
-  })
-
-}, 1000);
+  $('#home').removeClass('opacity');
+}, 4000);
 
 import home from '../../public/js/home.js';
 
@@ -105,19 +82,14 @@ export default defineComponent({
   },
   data() {
     return {
-      loader: true
     }
   },
   setup() {
     return {
+
     }
   },
   mounted() {
-
-    setTimeout(() => {
-      this.loader = false
-    }, 5500);
-
   }
 })
 </script>

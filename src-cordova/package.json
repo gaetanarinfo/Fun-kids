@@ -1,7 +1,7 @@
 {
   "name": "org.funkids.app",
   "displayName": "Funkids",
-  "version": "1.0.9",
+  "version": "1.0.13",
   "description": "A sample Apache Cordova application that responds to the deviceready event.",
   "main": "index.js",
   "scripts": {
@@ -24,7 +24,8 @@
     "cordova-plugin-purchase": "^11.0.0",
     "cordova-plugin-screen-orientation": "^3.0.2",
     "cordova-plugin-splashscreen": "^6.0.2",
-    "es6-promise-plugin": "^4.2.2"
+    "es6-promise-plugin": "^4.2.2",
+    "wonderpush-cordova-sdk": "^3.2.3"
   },
   "cordova": {
     "platforms": [
@@ -93,6 +94,13 @@
       "cordova-plugin-network-information": {},
       "cordova-plugin-advanced-http": {
         "ANDROIDBLACKLISTSECURESOCKETPROTOCOLS": "SSLv3,TLSv1"
+      },
+      "wonderpush-cordova-sdk": {
+        "CLIENT_ID": "3b443a9f74abec906323a2daf9a961a62696860a",
+        "CLIENT_SECRET": "c914ac033b7188f9c48016e65be88261866aead6b1a4b50ae39dd4f8c87e50e0",
+        "LOGGING": "false",
+        "AUTO_INIT": "true",
+        "REQUIRES_USER_CONSENT": "false"
       }
     }
   }

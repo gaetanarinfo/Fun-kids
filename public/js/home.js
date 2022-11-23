@@ -202,6 +202,27 @@ setTimeout(() => {
 
   })
 
+
+  $(document).on('click', '#close_shop', function (e) {
+
+    e.preventDefault();
+
+    playAudioClic();
+
+    $('.shop').fadeOut();
+    $('#home #bug').hide();
+    $('#home #menu').show();
+    $('#home .menu').show();
+    $('#home .classement').hide();
+    $('#home #option').hide();
+    $('#home #new_game').hide();
+    $('#home #login_game').hide();
+    $('#home #aide').hide();
+    $('#home #bug').hide();
+    $('#home #contact').hide();
+
+  })
+
   $(document).on('click', '#close_classement', function (e) {
 
     e.preventDefault();
@@ -442,8 +463,6 @@ setTimeout(() => {
       },
       success: function (data) {
 
-        console.log(data);
-
         var res = JSON.parse(data);
 
         if (res.login === true) {
@@ -454,6 +473,7 @@ setTimeout(() => {
           setTimeout(() => {
 
             location.href = '#/level';
+            location.reload();
 
           }, 1600);
 
@@ -742,6 +762,14 @@ setTimeout(() => {
 
   })
 
+  function onDeviceReady() {
+    $('.gpay').show();
+  }
+
+  document.addEventListener('deviceready', function () {
+    onDeviceReady()
+  });
+
   function gPay(item_name, item_id) {
 
     document.addEventListener('deviceready', initStore(item_name, item_id));
@@ -759,7 +787,6 @@ setTimeout(() => {
       return;
     }
 
-    store.verbosity = store.INFO;
     store.register({
       id: item_id,
       alias: item_name,
@@ -771,6 +798,7 @@ setTimeout(() => {
     });
 
     store.when('my_consumable1').updated(refreshProductUI);
+
     store.when('my_consumable1').approved(function (p) {
       $('.gerror').html(p);
       p.verify();
@@ -786,17 +814,23 @@ setTimeout(() => {
   }
 
   function refreshProductUI(product) {
+
     $('.gerror').html(product);
+
     const info = product.loaded ?
       `<h1>${product.title}</h1>` +
       `<p>${product.description}</p>` +
       `<p>${product.price}</p>` :
       '<p>Retrieving info...</p>';
+
     const button = product.canPurchase ?
       '<button onclick="purchaseConsumable1()">Acheter !</button>' :
       '';
+
     const el = document.getElementById('consumable1-purchase');
+
     el.innerHTML = info + button;
+
   }
 
   function purchaseConsumable1() {
@@ -1290,4 +1324,4 @@ setTimeout(() => {
 
   // home //
 
-}, 1000);
+}, 2500);

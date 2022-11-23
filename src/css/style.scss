@@ -17,6 +17,24 @@ body {
   background-color: #fff;
 }
 
+.opacity {
+  opacity: 0;
+}
+
+.fadeIn {
+  animation: fadeInHome 5s;
+}
+
+@keyframes fadeInHome {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
 .container,
 .container-md,
 .container-sm {
