@@ -1,6 +1,16 @@
 <template>
 
-  <div id="levels"></div>
+  <div id="levels">
+
+    <div id="loader" style="display: flex;justify-content: center;">
+
+      <div class="ajax-loader">
+        <img src="../../public/img/_preloader.gif" alt="">
+      </div>
+
+    </div>
+
+  </div>
 
   <!-- Shop -->
   <shop />
@@ -18,11 +28,11 @@ import copyright from '../components/home/copyright.vue'
 
 import css from '../css/level.scss';
 import js from '../../public/js/level.js';
-import home from '../../public/js/home.js';
 
-home;
 css;
 js;
+
+$('.game_v').hide()
 
 export default defineComponent({
   name: 'HomePage',

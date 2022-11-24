@@ -43,7 +43,16 @@
             d'or</span></div>
       </div>
 
-      <div class="grid_shop hide_shop">
+      <div class="grid_shop hide_shop no_grid fadeIn">
+
+        <div id="loader" style="display: flex;justify-content: center;">
+
+          <div class="ajax-loader">
+            <img src="../../../public/img/_preloader.gif" alt="">
+          </div>
+
+        </div>
+
       </div>
 
       <div class="footer_grid_shop">
@@ -131,13 +140,11 @@
         <div class="header"></div>
 
         <div class="Paypal">
-
           <div id="smart-button-container">
             <div style="text-align: center;">
               <div id="paypal-button-container"></div>
             </div>
           </div>
-
         </div>
 
         <div class="d_back_items">
@@ -171,6 +178,156 @@
 <script>
 import { defineComponent } from 'vue'
 
+var initPayPalButtons = false;
+
+function initPayPalButton(item_amountp, pseudo, item, item_name) {
+
+  paypal.Buttons({
+    style: {
+      shape: 'pill',
+      color: 'blue',
+      layout: 'horizontal',
+      label: 'pay',
+      tagline: true
+    },
+
+    createOrder: function (data, actions) {
+      return actions.order.create({
+        purchase_units: [{
+          "description": item_name + ' - Funkids à vie',
+          "amount": {
+            "currency_code": "EUR",
+            "value": item_amountp
+          }
+        }]
+      });
+    },
+
+    onApprove: function (data, actions) {
+      return actions.order.capture().then(function (orderData) {
+
+        // Full available details
+        console.log('Capture result', orderData, JSON.stringify(orderData, null, 2));
+
+        // Show a success message within this page, e.g.
+        const element = document.getElementById('paypal-button-container');
+        element.innerHTML = '';
+        element.innerHTML = '<h3>Merci pour votre paiement !</h3>';
+
+        // Or go to another URL:  actions.redirect('thank_you.html');
+        $.ajax({
+          url: "https://funkids.site/ajax/ajax-paiementSuccessful.php",
+          method: 'POST',
+          data: {
+            pseudo: pseudo,
+            origin: "paypal",
+            id_produit: item,
+            transaction_id: orderData.id,
+            statut_transaction: orderData.status
+          },
+          cache: false,
+          success: function (data) {
+
+            $('.paypalScreen .d_back_items').hide();
+            $(".paypalScreen .lds-ring").hide();
+            $('.paypalScreen .Paypal').remove();
+            $('.paypalScreen .header').remove();
+
+            $('.paypalScreen .after_paiement img').attr('src', 'https://funkids.site/assets/img/check.png');
+            $('.paypalScreen .after_paiement h2').html('Ton paiement est accepté.');
+            $('.paypalScreen .after_paiement p').html('Ton compte a été crédité de <span class="credit"></span>.<br/><br/>');
+            $('.paypalScreen .after_paiement p').append('Tu as reçu un email de récapitulatif de ta commande.');
+
+            $('.paypalScreen .after_paiement .credit').html(item_name);
+
+            setTimeout(() => {
+              $(".paypalScreen .after_paiement").show();
+            }, 200);
+
+          }
+
+        });
+
+      });
+    },
+
+    onError: function (data) {
+
+      $.ajax({
+        url: "https://funkids.site/ajax/ajax-paiementCanceled.php",
+        method: 'POST',
+        data: {
+          pseudo: pseudo,
+          id_produit: item,
+          origin: "paypal",
+          transaction_id: "",
+          statut_transaction: "CANCELED"
+        },
+        cache: false,
+        success: function (data) {
+
+          $('.paypalScreen .Paypal').hide()
+          $('.paypalScreen .d_back_items').hide();
+          $(".paypalScreen .lds-ring").hide();
+          $('.paypalScreen .stripe').remove();
+          $('.paypalScreen .header').remove();
+
+          $('.after_paiement img').attr('src', 'https://funkids.site/assets/img/cancel.png');
+          $('.after_paiement h2').html('Ton paiement a été refusé');
+          $('.after_paiement p').html('Tu n\'as pas été débité sur ton compte bancaire.');
+
+          $('.after_paiement .credit').html(item_name);
+
+          setTimeout(() => {
+            $(".after_paiement").show();
+          }, 200);
+
+        }
+
+      });
+
+    },
+
+    onCancel: function (data) {
+
+      $.ajax({
+        url: "https://funkids.site/ajax/ajax-paiementCanceled.php",
+        method: 'POST',
+        data: {
+          pseudo: pseudo,
+          id_produit: item,
+          origin: "paypal",
+          transaction_id: "",
+          statut_transaction: "ERROR"
+        },
+        cache: false,
+        success: function (data) {
+
+          $('.paypalScreen .Paypal').hide()
+          $('.paypalScreen .d_back_items').hide();
+          $(".paypalScreen .lds-ring").hide();
+          $('.paypalScreen .stripe').remove();
+          $('.paypalScreen .header').remove();
+
+          $('.after_paiement img').attr('src', 'https://funkids.site/assets/img/cancel.png');
+          $('.after_paiement h2').html('Ton paiement a été refusé');
+          $('.after_paiement p').html('Tu n\'as pas été débité sur ton compte bancaire.');
+
+          $('.after_paiement .credit').html(item_name);
+
+          setTimeout(() => {
+            $(".after_paiement").show();
+          }, 200);
+
+        }
+
+      });
+
+    }
+
+  }).render('#paypal-button-container');
+}
+
 $(document).on('click', '.btn_shop_item', function (e) {
 
   e.preventDefault();
@@ -202,164 +359,22 @@ $(document).on('click', '.btn_shop_item', function (e) {
 
     $('.paypalScreen').fadeIn(300);
 
+    $('.paypalScreen .header').show();
+
     $('.paypalScreen .d_back_items').show();
 
-    $('.pay .header').show();
-    $('.pay .stripe').show();
 
-    initPayPalButton(item_amountp, pseudo, item, item_name);
+    setTimeout(() => {
 
-    function initPayPalButton(item_amountp, pseudo, item, item_name) {
+      if (!initPayPalButtons) initPayPalButton(item_amountp, pseudo, item, item_name);
+      initPayPalButtons = true;
 
-      paypal.Buttons({
-        style: {
-          shape: 'pill',
-          color: 'blue',
-          layout: 'horizontal',
-          label: 'pay',
-          tagline: true
-        },
-
-        createOrder: function (data, actions) {
-          return actions.order.create({
-            purchase_units: [{
-              "description": item_name + ' - Funkids à vie',
-              "amount": {
-                "currency_code": "EUR",
-                "value": item_amountp
-              }
-            }]
-          });
-        },
-
-        onApprove: function (data, actions) {
-          return actions.order.capture().then(function (orderData) {
-
-            // Full available details
-            console.log('Capture result', orderData, JSON.stringify(orderData, null, 2));
-
-            // Show a success message within this page, e.g.
-            const element = document.getElementById('paypal-button-container');
-            element.innerHTML = '';
-            element.innerHTML = '<h3>Merci pour votre paiement !</h3>';
-
-            // Or go to another URL:  actions.redirect('thank_you.html');
-            $.ajax({
-              url: "https://funkids.site/ajax/ajax-paiementSuccessful.php",
-              method: 'POST',
-              data: {
-                pseudo: pseudo,
-                origin: "paypal",
-                id_produit: item,
-                transaction_id: orderData.id,
-                statut_transaction: orderData.status
-              },
-              cache: false,
-              success: function (data) {
-
-                $('.paypalScreen .d_back_items').hide();
-                $(".paypalScreen .lds-ring").hide();
-                $('.paypalScreen .Paypal').remove();
-                $('.paypalScreen .header').remove();
-
-                $('.paypalScreen .after_paiement img').attr('src', 'https://funkids.site/assets/img/check.png');
-                $('.paypalScreen .after_paiement h2').html('Ton paiement est accepté.');
-                $('.paypalScreen .after_paiement p').html('Ton compte a été crédité de <span class="credit"></span>.<br/><br/>');
-                $('.paypalScreen .after_paiement p').append('Tu as reçu un email de récapitulatif de ta commande.');
-
-                $('.paypalScreen .after_paiement .credit').html(item_name);
-
-                setTimeout(() => {
-                  $(".paypalScreen .after_paiement").show();
-                }, 200);
-
-              }
-
-            });
-
-          });
-        },
-
-        onError: function (data) {
-
-          $.ajax({
-            url: "https://funkids.site/ajax/ajax-paiementCanceled.php",
-            method: 'POST',
-            data: {
-              pseudo: pseudo,
-              id_produit: item,
-              origin: "paypal",
-              transaction_id: "",
-              statut_transaction: "CANCELED"
-            },
-            cache: false,
-            success: function (data) {
-
-              $('.paypalScreen .Paypal').hide()
-              $('.paypalScreen .d_back_items').hide();
-              $(".paypalScreen .lds-ring").hide();
-              $('.paypalScreen .stripe').remove();
-              $('.paypalScreen .header').remove();
-
-              $('.after_paiement img').attr('src', 'https://funkids.site/assets/img/cancel.png');
-              $('.after_paiement h2').html('Ton paiement a été refusé');
-              $('.after_paiement p').html('Tu n\'as pas été débité sur ton compte bancaire.');
-
-              $('.after_paiement .credit').html(item_name);
-
-              setTimeout(() => {
-                $(".after_paiement").show();
-              }, 200);
-
-            }
-
-          });
-
-        },
-
-        onCancel: function (data) {
-
-          $.ajax({
-            url: "https://funkids.site/ajax/ajax-paiementCanceled.php",
-            method: 'POST',
-            data: {
-              pseudo: pseudo,
-              id_produit: item,
-              origin: "paypal",
-              transaction_id: "",
-              statut_transaction: "ERROR"
-            },
-            cache: false,
-            success: function (data) {
-
-              $('.paypalScreen .Paypal').hide()
-              $('.paypalScreen .d_back_items').hide();
-              $(".paypalScreen .lds-ring").hide();
-              $('.paypalScreen .stripe').remove();
-              $('.paypalScreen .header').remove();
-
-              $('.after_paiement img').attr('src', 'https://funkids.site/assets/img/cancel.png');
-              $('.after_paiement h2').html('Ton paiement a été refusé');
-              $('.after_paiement p').html('Tu n\'as pas été débité sur ton compte bancaire.');
-
-              $('.after_paiement .credit').html(item_name);
-
-              setTimeout(() => {
-                $(".after_paiement").show();
-              }, 200);
-
-            }
-
-          });
-
-        }
-
-      }).render('#paypal-button-container');
-    }
+    }, 500);
 
   })
 
 })
+
 
 export default defineComponent({
   name: 'ShooComponent'

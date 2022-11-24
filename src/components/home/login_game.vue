@@ -36,9 +36,20 @@
                   <input type="text" class="form-control" name="pseudo_login" required>
                 </div>
 
-                <div class="form">
+                <div class="form show_hide_password">
                   <label for="password_login" class="form-label">Ton mot de passe</label>
-                  <input type="password" class="form-control" name="password_login" required>
+
+                  <div style="display: flex;align-items: center;gap: 15px;">
+                    <input type="password" class="form-control" name="password_login" required>
+                    <div class="input-group-addon">
+                      <a href=""><i class="fa fa-eye-slash" aria-hidden="true"></i></a>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="verification">
+                  <label for="code_login" class="form-label">Code reçu par email</label>
+                  <input type="number" maxlength="6" min="6" max="6" class="form-control" name="code_login">
                 </div>
 
               </div>

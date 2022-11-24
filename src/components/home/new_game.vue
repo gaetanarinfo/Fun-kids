@@ -41,9 +41,14 @@
                   <input type="email" class="form-control" id="email" name="email" required>
                 </div>
 
-                <div class="form">
+                <div class="form show_hide_password">
                   <label for="password" class="form-label">Ton mot de passe</label>
-                  <input type="password" class="form-control" id="password" name="password" required>
+                  <div style="display: flex;align-items: center;gap: 15px;">
+                    <input type="password" class="form-control" name="password" id="password" required>
+                    <div class="input-group-addon">
+                      <a href=""><i class="fa fa-eye-slash" aria-hidden="true"></i></a>
+                    </div>
+                  </div>
                 </div>
 
                 <div class="mt-3 form">

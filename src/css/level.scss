@@ -218,7 +218,7 @@ td {
 .play_after #play_after {
   display: none;
   margin: 0 auto;
-  max-width: 456px;
+  max-width: 100%;
   transform: scale(1);
   animation: pulse 2s infinite;
 }
@@ -975,19 +975,28 @@ td {
   max-width: 250px;
 }
 
-.btn_play {
+.play_after {
+  display: flex;
+  justify-content: center;
+}
+
+#levels .close_chest_bonus {
+  width: 180px !important;
+}
+
+#levels .btn_play {
   background: #000000ad;
   box-shadow: 4px 4px 0px #00000017;
   height: 50px;
-  width: 180px;
+  width: 100%;
   line-height: 3.5;
   padding: 0;
   margin: 0;
   z-index: 1;
 }
 
-.btn_play:hover,
-.btn_shop:hover {
+#levels .btn_play:hover,
+#levels .btn_shop:hover {
   box-shadow: 4px 4px 0px #00000017;
   color: #fff;
   background: #000000ad;
@@ -1032,4 +1041,12 @@ td {
 
 .update_attempting img {
   max-width: 300px;
+}
+
+.display_none {
+  display: none !important;
+}
+
+.shop .grid_shop.no_grid {
+  grid-template-columns: 1fr;
 }

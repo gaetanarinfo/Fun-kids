@@ -34,7 +34,7 @@
       <hr class="m-auto mt-3 mb-3 w-50">
       <p class="m-0 p-0">Version {{ replaceGuillemet(params.appVersion) }} - <span style="text-transform:capitalize;">{{
           platform.platform
-      }}</span>
+      }} - Build {{ params.appBuild }}</span>
       </p>
       <hr class="m-auto mt-3 mb-3 w-50">
       <p class="m-0 p-0">© 2022
@@ -65,7 +65,8 @@ export default defineComponent({
         return value.replaceAll('"', '');
       },
       params: {
-        appVersion: '1.0.13',
+        appVersion: '1.0.16',
+        appBuild: '10016',
       },
       platform: $q.platform.is,
     }

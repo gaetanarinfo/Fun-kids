@@ -1,6 +1,19 @@
 setTimeout(() => {
   // home //
 
+  $(".show_hide_password a").on('click', function (event) {
+    event.preventDefault();
+    if ($('.show_hide_password input').attr("type") == "text") {
+      $('.show_hide_password input').attr('type', 'password');
+      $('.show_hide_password i').addClass("fa-eye-slash");
+      $('.show_hide_password i').removeClass("fa-eye");
+    } else if ($('.show_hide_password input').attr("type") == "password") {
+      $('.show_hide_password input').attr('type', 'text');
+      $('.show_hide_password i').removeClass("fa-eye-slash");
+      $('.show_hide_password i').addClass("fa-eye");
+    }
+  });
+
   $('#home #btn_start').show();
 
   // Show user online
@@ -50,6 +63,13 @@ setTimeout(() => {
 
   $.cookie.raw = true;
 
+  if ($.cookie("hud") == undefined) {
+    $.cookie("hud", 1, {
+      expires: 365,
+      path: '/'
+    });
+  }
+
   if ($.cookie("soundGeneral") != undefined) {
     sound_1.volume = parseFloat($.cookie("soundGeneral"));
   }
@@ -78,7 +98,7 @@ setTimeout(() => {
     playAudioClic();
     playAudio();
 
-    $(this).fadeOut();
+    $('.btn-start').hide()
 
     $('#home #loader').fadeIn(600);
 
@@ -171,6 +191,11 @@ setTimeout(() => {
     });
 
     $.cookie("soundBruitage", parseFloat($('#soundBruitage').val()), {
+      expires: 365,
+      path: '/'
+    });
+
+    $.cookie("hud", parseFloat($('#switchHud').val()), {
       expires: 365,
       path: '/'
     });
@@ -393,6 +418,10 @@ setTimeout(() => {
 
         if (res.register === true) {
 
+          $('html, body').animate({
+            scrollTop: $("html").offset().top
+          }, "slow");
+
           setTimeout(() => {
 
             location.href = '#/level';
@@ -402,6 +431,10 @@ setTimeout(() => {
         }
 
         if (res.register === false) {
+
+          $('html, body').animate({
+            scrollTop: $("html").offset().top
+          }, "slow");
 
           setTimeout(() => {
             $('.lds-ring').hide();
@@ -459,27 +492,35 @@ setTimeout(() => {
       type: "POST",
       data: {
         pseudo_login: $('input[name=pseudo_login]').val(),
-        password_login: $('input[name=password_login]').val()
+        password_login: $('input[name=password_login]').val(),
+        code_mail: $('input[name=code_login]').val()
       },
       success: function (data) {
+
+        $('html, body').animate({
+          scrollTop: $("html").offset().top
+        }, "slow");
 
         var res = JSON.parse(data);
 
         if (res.login === true) {
 
-          sessionStorage.setItem("user_id", res.user_id);
-          localStorage.setItem("user_id", res.user_id);
-
           setTimeout(() => {
 
-            location.href = '#/level';
-            location.reload();
+            $('#login_game .form').hide('loading');
+            $('#login_game .lds-ring').hide();
+            $("#connexion_game .verification input").prop("disabled", false);
+            $('#login_game .verification').show();
 
-          }, 1600);
+          }, 1500);
 
         }
 
         if (res.login === false) {
+
+          $('html, body').animate({
+            scrollTop: $("html").offset().top
+          }, "slow");
 
           setTimeout(() => {
             $('.lds-ring').hide();
@@ -509,6 +550,49 @@ setTimeout(() => {
     })
 
   }
+
+  $(document).on('keyup', '#login_game .verification input', function (e) {
+
+    var input = $(this);
+
+    if ($(this).val().length > 5 && $(this).val().length < 7) {
+
+      var url2 = "https://funkids.site/ajax/ajax-verifLogin.php";
+
+      $.ajax({
+        url: url2,
+        type: "POST",
+        data: {
+          pseudo_login: $('input[name=pseudo_login]').val(),
+          code_mail: $('input[name=code_login]').val()
+        },
+        success: function (data) {
+
+          var res = JSON.parse(data);
+
+          if (res.login === true) {
+
+            $('input[name=code_login]').removeAttr('style');
+
+            sessionStorage.setItem("user_id", res.user_id);
+            localStorage.setItem("user_id", res.user_id);
+
+            location.href = '#/level';
+            location.reload();
+
+          }
+
+          if (res.login === false) {
+            $('input[name=code_login]').attr('style', 'border: 2px dashed red !important');
+          }
+
+        }
+
+      })
+
+    }
+
+  })
 
   $(document).on('click', '#quit_new_game', function (e) {
 
@@ -603,12 +687,14 @@ setTimeout(() => {
     $('#home #shop').fadeIn();
     $('#menu .row .col:first-child').hide()
 
+    $('.grid_shop').addClass('no_grid');
     $.ajax({
       url: 'https://funkids.site/ajax/ajax-showShop.php',
       success: function (data) {
-
-        $('.grid_shop').html(data)
-
+        setTimeout(() => {
+          $('.grid_shop').html(data)
+          $('.grid_shop').removeClass('no_grid');
+        }, 1200);
       }
     })
 
@@ -628,12 +714,14 @@ setTimeout(() => {
       scrollTop: $("html").offset().top
     }, "slow");
 
+    $('.grid_shop').addClass('no_grid');
     $.ajax({
       url: 'https://funkids.site/ajax/ajax-showShop.php',
       success: function (data) {
-
-        $('.grid_shop').html(data)
-
+        setTimeout(() => {
+          $('.grid_shop').html(data)
+          $('.grid_shop').removeClass('no_grid');
+        }, 1200);
       }
     })
 
@@ -1186,6 +1274,8 @@ setTimeout(() => {
 
     $('.stripe').html('');
     $('.stripe').hide();
+    $('.paypalScreen .Paypal').html();
+    $('.paypalScreen').hide();
     $('.header').hide();
     $('.d_back_items').hide();
     $('.after_paiement').hide();
@@ -1204,6 +1294,8 @@ setTimeout(() => {
 
     $('.stripe').html('');
     $('.stripe').hide();
+    $('.paypalScreen .Paypal').html();
+    $('.paypalScreen').hide();
     $('.header').hide();
     $('.d_back_items').hide();
     $('.after_paiement').hide();
@@ -1219,8 +1311,6 @@ setTimeout(() => {
     e.preventDefault();
 
     var name = $(this).data('name');
-
-    console.log(name);
 
     if (name == "item_ingot") {
       $('.shop .grid_shop .item_ingot').show();
@@ -1324,4 +1414,4 @@ setTimeout(() => {
 
   // home //
 
-}, 2500);
+}, 1200);

@@ -22,9 +22,7 @@
 
         </div>
 
-        <h2 class="title_start mb-5" style="padding-left: 10px;">Jouer <span>gratuitement</span></h2>
-
-        <div class="btn-start">
+        <div class="btn-start mb-3">
 
           <div id="btn_start">
             <img src="../../../public/img/btn-play.webp" alt="Start Game">
@@ -32,13 +30,15 @@
 
         </div>
 
-        <div id="loader">
+        <div id="loader" class="mb-3">
 
           <div class="ajax-loader">
             <img src="../../../public/img/_preloader.gif" alt="">
           </div>
 
         </div>
+
+        <h2 class="title_start" style="padding-left: 10px;">Jouer <span>gratuitement</span></h2>
 
       </div>
 

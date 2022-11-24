@@ -1,35 +1,9 @@
-.div {
-  font-family: "Montserrat", sans-serif;
-  box-sizing: border-box;
-  animation-timing-function: ease;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100%;
-  overflow: hidden;
-  margin: 0 0;
-  width: 100%;
-  position: fixed;
-}
-
-#wrapper {
-  position: relative;
-  width: 250px;
-  animation-delay: 5s;
-  transform: scale(1);
-  opacity: 1;
-  transform-origin: center -80%;
-}
-
-#wrapper img {
-  width: 250px;
-}
-
 .game_v {
   position: fixed;
   bottom: 10px;
   font-weight: 700;
   left: 10px;
   font-size: 13px;
-  color: #ffffffec;
+  z-index: 9;
+  color: #000000ec;
 }

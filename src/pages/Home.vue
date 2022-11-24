@@ -1,6 +1,6 @@
 <template>
 
-  <div id="home" class="fadeIn opacity">
+  <div id="home" class="fadeIn">
 
     <!-- Loading -->
     <loading />
@@ -55,17 +55,11 @@ import contact from '../components/home/contact.vue'
 import aide from '../components/home/aide.vue'
 import copyright from '../components/home/copyright.vue'
 
-setTimeout(() => {
-  $('body').attr('style', ' background: url(../img/background-1.webp) no-repeat center;background-attachment: fixed;');
-}, 2000);
-
-setTimeout(() => {
-  $('#home').removeClass('opacity');
-}, 4000);
-
 import home from '../../public/js/home.js';
 
 home;
+
+$('.game_v').show()
 
 export default defineComponent({
   name: 'HomePage',
