@@ -1,7 +1,7 @@
 {
   "name": "org.funkids.app",
   "displayName": "Funkids",
-  "version": "1.0.16",
+  "version": "1.0.17",
   "description": "A sample Apache Cordova application that responds to the deviceready event.",
   "main": "index.js",
   "scripts": {
@@ -20,6 +20,7 @@
     "cordova-plugin-file": "^7.0.0",
     "cordova-plugin-inappbrowser": "^5.0.0",
     "cordova-plugin-network-information": "^3.0.0",
+    "cordova-plugin-play-games-services": "^1.1.2",
     "cordova-plugin-proguard": "^2.2.0",
     "cordova-plugin-purchase": "^11.0.0",
     "cordova-plugin-screen-orientation": "^3.0.2",
@@ -101,6 +102,11 @@
         "LOGGING": "false",
         "AUTO_INIT": "true",
         "REQUIRES_USER_CONSENT": "false"
+      },
+      "cordova-plugin-play-games-services": {
+        "APP_ID": "724119570320",
+        "ANDROID_PLAY_SERVICES_GAMES_VERSION": "+",
+        "ANDROID_PLAY_SERVICES_PLUS_VERSION": "+"
       }
     }
   }

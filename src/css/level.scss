@@ -203,22 +203,14 @@ td {
   float: right;
 }
 
-.start_des #start_des {
-  width: 175px;
-  display: inline-block;
-  height: 50px;
-  line-height: 16px;
-  margin: 0 auto;
-  text-align: center;
-  padding: 19px 29px;
-  text-indent: 5px;
-  margin-top: 13px;
+#start_des {
+  width: 175px !important;
 }
 
-.play_after #play_after {
+#play_after {
   display: none;
   margin: 0 auto;
-  max-width: 100%;
+  max-width: 250px;
   transform: scale(1);
   animation: pulse 2s infinite;
 }
