@@ -59,8 +59,6 @@ import home from '../../public/js/home.js';
 
 home;
 
-$('.game_v').show()
-
 export default defineComponent({
   name: 'HomePage',
   components: {

@@ -365,7 +365,7 @@ setTimeout(() => {
     $('#home #new_game').show();
 
   })
-
+  new_game
   $(document).on('click', '#btn_login_game', function (e) {
 
     e.preventDefault();
@@ -412,11 +412,12 @@ setTimeout(() => {
       data: formData,
       success: function (data) {
 
-        console.log(data);
-
         var res = JSON.parse(data);
 
         if (res.register === true) {
+
+          sessionStorage.setItem("user_id", res.id);
+          localStorage.setItem("user_id", res.id);
 
           $('html, body').animate({
             scrollTop: $("html").offset().top
@@ -583,7 +584,7 @@ setTimeout(() => {
           }
 
           if (res.login === false) {
-            $('input[name=code_login]').attr('style', 'border: 2px dashed red !important');
+            $('input[name=code_login]').attr('style', 'width: 110px !important;border: 2px dashed red !important;');
           }
 
         }

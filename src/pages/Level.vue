@@ -15,6 +15,12 @@
   <!-- Shop -->
   <shop />
 
+  <!-- Bug -->
+  <bug />
+
+  <!-- Contact -->
+  <contact />
+
   <!-- Copyright -->
   <copyright />
 
@@ -25,6 +31,8 @@
 import { defineComponent } from 'vue'
 import shop from '../components/home/shop.vue'
 import copyright from '../components/home/copyright.vue'
+import bug from '../components/home/bug.vue'
+import contact from '../components/home/contact.vue'
 
 import css from '../css/level.scss';
 import js from '../../public/js/level.js';
@@ -32,13 +40,13 @@ import js from '../../public/js/level.js';
 css;
 js;
 
-$('.game_v').hide()
-
 export default defineComponent({
   name: 'HomePage',
   components: {
     shop,
-    copyright
+    copyright,
+    bug,
+    contact
   },
   setup() {
 
