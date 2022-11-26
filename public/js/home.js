@@ -70,6 +70,18 @@ setTimeout(() => {
     });
   }
 
+  if ($.cookie("hud") != undefined && $.cookie("hud") == "1") {
+    $('#switchHud').prop('checked', true)
+  }
+
+  if ($.cookie("pseudoPlayer") != undefined) {
+    $('input[name="pseudo_login"]').val($.cookie('pseudoPlayer'))
+  }
+
+  if ($.cookie("passwordPlayer") != undefined) {
+    $('input[name="password_login"]').val($.cookie('passwordPlayer'))
+  }
+
   if ($.cookie("soundGeneral") != undefined) {
     sound_1.volume = parseFloat($.cookie("soundGeneral"));
   }
@@ -143,6 +155,10 @@ setTimeout(() => {
     $('#home #menu').hide();
     $('#home #option').show();
 
+    $('html, body').animate({
+      scrollTop: $("html").offset().top
+    }, "slow");
+
   })
 
   $(document).on('click', '#quit_option', function (e) {
@@ -160,6 +176,10 @@ setTimeout(() => {
     $('#home #option').hide();
     $('#home #menu').show();
 
+    $('html, body').animate({
+      scrollTop: $("html").offset().top
+    }, "slow");
+
   })
 
   $(document).on('change', '#soundGeneral', function (e) {
@@ -175,6 +195,20 @@ setTimeout(() => {
     var value = parseFloat($(this).val());
 
     clic_1.volume = value;
+
+  })
+
+  $(document).on('change', '#switchHud', function (e) {
+
+    var check = $(this).prop('checked');
+
+    if (check) {
+      $.cookie("hud", "1");
+      $(this).prop('checked', true)
+    } else {
+      $.cookie("hud", "0");
+      $(this).prop('checked', false)
+    }
 
   })
 
@@ -195,16 +229,15 @@ setTimeout(() => {
       path: '/'
     });
 
-    $.cookie("hud", parseFloat($('#switchHud').val()), {
-      expires: 365,
-      path: '/'
-    });
-
     $('#sound_1').attr('volume', parseFloat($('#soundGeneral').val()));
     $('#clic_1').attr('volume', parseFloat($('#soundBruitage').val()));
 
     $('#home #option').hide();
     $('#home #menu').show();
+
+    $('html, body').animate({
+      scrollTop: $("html").offset().top
+    }, "slow");
 
   })
 
@@ -217,13 +250,9 @@ setTimeout(() => {
     $('#home #shop').hide();
     $('#home .classement').fadeIn();
 
-    setTimeout(() => {
-      if ($(window).width() < 728) {
-        $('html, body').animate({
-          scrollTop: $(".classement").offset().top - 10
-        }, "slow");
-      }
-    }, 200);
+    $('html, body').animate({
+      scrollTop: $(".classement").offset().top - 10
+    }, "slow");
 
   })
 
@@ -485,6 +514,11 @@ setTimeout(() => {
     $('#login_game .lds-ring').show();
     $("#connexion_game").parent().css('min-height', 'auto');
     $('#login_game .lds-ring').parent().css('min-height', 'auto');
+    $('#login_game .footer').hide();
+
+    $('html, body').animate({
+      scrollTop: $("html").offset().top
+    }, "slow");
 
     var url = "https://funkids.site/ajax/ajax-loginGame.php";
 
@@ -498,9 +532,6 @@ setTimeout(() => {
       },
       success: function (data) {
 
-        $('html, body').animate({
-          scrollTop: $("html").offset().top
-        }, "slow");
 
         var res = JSON.parse(data);
 
@@ -539,6 +570,7 @@ setTimeout(() => {
             $('#login_game .message_success').hide();
             $("#login_game .box").removeAttr('style');
             $('#login_game .body').removeAttr('style');
+            $('#login_game .footer').show();
           }, 2100);
 
 
@@ -837,7 +869,7 @@ setTimeout(() => {
 
       $('.gPayScreen').fadeIn(300);
 
-      gPay(item_name, item_id);
+      gPay(item_name, item_id, item_price);
 
     })
 
@@ -859,22 +891,28 @@ setTimeout(() => {
     onDeviceReady()
   });
 
-  function gPay(item_name, item_id) {
+  function gPay(item_name, item_id, item_price) {
+
+    $('.gPayScreen .header').show();
+    $('.gPayScreen .d_back_items').show();
 
     document.addEventListener('deviceready', initStore(item_name, item_id));
-    document.addEventListener('deviceready', refreshGoldCoinsUI);
-
-    $('.gPayScreen .d_back_items').show();
-    $('.gPayScreen .header').show();
+    document.addEventListener('deviceready', refreshGoldCoinsUI(item_name, item_price));
 
   }
+
+  var name_item = "";
+  var id_item = 0;
 
   function initStore(item_name, item_id) {
 
     if (!window.store) {
-      $('.gerror').html('Store not available');
+      $('.gerror').html('Magasin non disponible');
       return;
     }
+
+    name_item = item_name;
+    id_item = item_id;
 
     store.register({
       id: item_id,
@@ -883,54 +921,81 @@ setTimeout(() => {
     });
 
     store.error(function (error) {
-      $('.gerror').html('ERROR ' + error.code + ': ' + error.message);
+      $('.gerror').html('Erreur ' + error.code + ': ' + error.message);
     });
 
-    store.when('my_consumable1').updated(refreshProductUI);
+    store.when(item_name).updated(refreshProductUI);
 
-    store.when('my_consumable1').approved(function (p) {
+    store.when(item_name).approved(function (p) {
       $('.gerror').html(p);
       p.verify();
     });
-    store.when('my_consumable1').verified(finishPurchase);
+
+    store.when(item_name).verified(finishPurchase);
 
     store.refresh();
   }
 
-  function refreshGoldCoinsUI() {
-    document.getElementById('gold-coins').innerHTML =
-      '50 l\'ingots : <strong>' + (window.localStorage.goldCoins | 0) + '</strong>';
+  function refreshGoldCoinsUI(item_name, item_price) {
+    $('.gPayScreen .header').html('<div class="item_shop"><img src="https://funkids.site/assets/img/level/chest_open.png" /><p>' + item_name + ' - <span class="price">' + item_price + '</span></p></div>');
   }
 
   function refreshProductUI(product) {
 
     $('.gerror').html(product);
 
-    const info = product.loaded ?
-      `<h1>${product.title}</h1>` +
-      `<p>${product.description}</p>` +
-      `<p>${product.price}</p>` :
-      '<p>Retrieving info...</p>';
+    $('.gPayScreen .header').html('<div class="item_shop"><img src="https://funkids.site/assets/img/level/chest_open.png" /><p>' + product.title + ' - <span class="price">' + product.price + '</span></p></div>');
 
-    const button = product.canPurchase ?
-      '<button onclick="purchaseConsumable1()">Acheter !</button>' :
-      '';
+    const button = product.canPurchase ? '<a class="btn_achat_gpay" data-name="' + name_item + '" id="purchaseConsumable">Acheter !</a>' : '';
 
-    const el = document.getElementById('consumable1-purchase');
+    const el = document.getElementById('consumable-purchase');
 
-    el.innerHTML = info + button;
+    el.innerHTML = button;
 
   }
 
-  function purchaseConsumable1() {
-    store.order('my_consumable1');
-  }
+  $(document).on('click', '#purchaseConsumable', function (e) {
 
+    e.preventDefault();
+
+    var name_i = $(this).data('name');
+    store.order(name_i);
+
+  })
+
+  // Paiement final gpay
   function finishPurchase(p) {
-    // window.localStorage.goldCoins = (window.localStorage.goldCoins | 0) + 10;
-    $('.gerror').html(p);
-    p.finish();
-    refreshGoldCoinsUI();
+
+    $.ajax({
+      url: "https://funkids.site/ajax/ajax-paiementGpaySuccessful.php",
+      method: 'POST',
+      data: {
+        pseudo: $('input[name=pseudo_shop_login]').val(),
+        id_produit: id_item,
+      },
+      cache: false,
+      success: function (data) {
+        $('.gerror').html(p);
+
+        $('.gPayScreen .header').hide();
+        $('.gPayScreen .d_back_items').hide();
+        $('.gPayScreen .after_paiement img').attr('src', 'https://funkids.site/assets/img/check.png');
+        $('.gPayScreen .after_paiement h2').html('Ton paiement est accepté.');
+        $('.gPayScreen .after_paiement p').html('Ton compte a été crédité de <span class="credit"></span>.<br/><br/>');
+        $('.gPayScreen .after_paiement p').append('Tu as reçu un email de récapitulatif de ta commande.');
+
+        $('.gPayScreen .after_paiement .credit').html(name_item);
+
+        setTimeout(() => {
+          $(".gPayScreen .after_paiement").show();
+        }, 200);
+
+        p.finish();
+        refreshGoldCoinsUI();
+      }
+
+    });
+
   }
 
   function cardPay(item, item_name, item_price, item_price_amount, pseudo, item_image) {
@@ -1275,8 +1340,10 @@ setTimeout(() => {
 
     $('.stripe').html('');
     $('.stripe').hide();
-    $('.paypalScreen .Paypal').html();
+    $('.paypalScreen .Paypal').html('');
     $('.paypalScreen').hide();
+    $('#consumable-purchase').html('');
+    name_item = "";
     $('.header').hide();
     $('.d_back_items').hide();
     $('.after_paiement').hide();
@@ -1295,8 +1362,10 @@ setTimeout(() => {
 
     $('.stripe').html('');
     $('.stripe').hide();
-    $('.paypalScreen .Paypal').html();
+    $('.paypalScreen .Paypal').html('');
     $('.paypalScreen').hide();
+    $('#consumable-purchase').html('');
+    name_item = "";
     $('.header').hide();
     $('.d_back_items').hide();
     $('.after_paiement').hide();
@@ -1416,3 +1485,11 @@ setTimeout(() => {
   // home //
 
 }, 1200);
+
+$(document).on('keyup', 'input[name="pseudo_login"]', function (e) {
+  $.cookie('pseudoPlayer', $(this).val());
+})
+
+$(document).on('keyup', 'input[name="password_login"]', function (e) {
+  $.cookie('passwordPlayer', $(this).val());
+})

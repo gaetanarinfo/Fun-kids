@@ -38,7 +38,7 @@
         <div class="item"><span>Filtré par :</span></div>
         <div class="item" data-name="all"><img src="../../../public/img/menu.png" alt=""><span>Tous</span></div>
         <div class="item" data-name="item_ingot"><img src="../../../public/img/level/lingo_1.png"
-            alt=""><span>L'ingot</span></div>
+            alt=""><span>Lingot</span></div>
         <div class="item" data-name="item_coin"><img src="../../../public/img/level/coin.png" alt=""><span>Pièce
             d'or</span></div>
       </div>
@@ -91,12 +91,19 @@
       <div class="gPayScreen">
 
         <div class="header">
+        </div>
 
-          <p id="gold-coins">L'ingot :</p>
+        <div id="consumable-purchase"></div>
 
-          <div id="consumable1-purchase"></div>
+        <div class="gerror"></div>
 
-          <div class="gerror"></div>
+        <div class="after_paiement">
+
+          <img />
+          <h2></h2>
+          <p></p>
+
+          <a id="quit_shop_login_end" class="btn_exit">Quitter</a>
 
         </div>
 

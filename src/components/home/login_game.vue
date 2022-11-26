@@ -78,6 +78,8 @@
 import { defineComponent } from 'vue'
 
 export default defineComponent({
-  name: 'LoginGameComponent'
+  name: 'LoginGameComponent',
+  data() {
+  }
 })
 </script>

@@ -127,11 +127,51 @@ $(document).on('click', '#chest_btn_open', function (e) {
 
   $(this).find('img').attr('style', 'animation: ChestOpen 0.5s cubic-bezier(.36, .07, .19, .97) infinite;');
 
-  var ingot = Math.floor(1 + Math.random() * 4);
-  var coin = Math.floor(1 + Math.random() * 4);
+  var ingot,
+    coin,
+    bambou,
+    rubis,
+    level = parseInt($('input[name=level]').val());
+
+  // Pour chaque level la récompense augmente
+  if (level == 1) {
+    console.log(level);
+    ingot = Math.floor(1 + Math.random() * 2);
+    coin = Math.floor(1 + Math.random() * 2);
+    bambou = Math.floor(1 + Math.random() * 2);
+    rubis = Math.floor(1 + Math.random() * 2);
+  } else if (level == 2) {
+    ingot = Math.floor(1 + Math.random() * 2.5);
+    coin = Math.floor(1 + Math.random() * 2.5);
+    bambou = Math.floor(1 + Math.random() * 2.5);
+    rubis = Math.floor(1 + Math.random() * 2.5);
+  } else if (level == 3) {
+    ingot = Math.floor(1 + Math.random() * 3);
+    coin = Math.floor(1 + Math.random() * 3);
+    bambou = Math.floor(1 + Math.random() * 3);
+    rubis = Math.floor(1 + Math.random() * 3);
+  } else if (level == 4) {
+    ingot = Math.floor(1 + Math.random() * 3.5);
+    coin = Math.floor(1 + Math.random() * 3.5);
+    bambou = Math.floor(1 + Math.random() * 3.5);
+    rubis = Math.floor(1 + Math.random() * 3.5);
+  } else if (level == 5) {
+    console.log(level);
+    ingot = Math.floor(1 + Math.random() * 4);
+    coin = Math.floor(1 + Math.random() * 4);
+    bambou = Math.floor(1 + Math.random() * 4);
+    rubis = Math.floor(1 + Math.random() * 4);
+  } else if (level == 6) {
+    ingot = Math.floor(1 + Math.random() * 4.5);
+    coin = Math.floor(1 + Math.random() * 4.5);
+    bambou = Math.floor(1 + Math.random() * 4.5);
+    rubis = Math.floor(1 + Math.random() * 4.5);
+  }
 
   $('.grid_bonus .item_ingot span').html(ingot);
   $('.grid_bonus .item_coin span').html(coin);
+  $('.grid_bonus .item_bambou span').html(bambou);
+  $('.grid_bonus .item_rubis span').html(rubis);
 
   setTimeout(() => {
     $(this).find('img').attr('style', 'animation: none');
@@ -144,7 +184,9 @@ $(document).on('click', '#chest_btn_open', function (e) {
       type: 'POST',
       data: {
         ingot: ingot,
-        coins: coin
+        coins: coin,
+        bambou: bambou,
+        rubis: rubis
       },
       success: function (data) {
 

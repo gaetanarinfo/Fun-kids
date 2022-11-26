@@ -220,6 +220,7 @@ body {
 .btn_classement,
 .btn_aide,
 .btn_cgv,
+.btn_achat_gpay,
 .btn_shop {
   transition: 1s all;
   text-align: center;
@@ -246,6 +247,7 @@ body {
 .btn_exit:hover,
 .btn_cgv:hover,
 .btn_classement:hover,
+.btn_achat_gpay:hover,
 .btn_aide:hover,
 .btn_shop:hover {
   box-shadow: 0px 0px 8px 4px #5370832e;
@@ -261,6 +263,7 @@ body {
   .btn_cgv,
   .btn_exit,
   .btn_classement,
+  .btn_achat_gpay,
   .btn_aide,
   .btn_shop {
     width: 100%;
@@ -350,6 +353,19 @@ body {
 }
 
 .btn_shop:hover {
+  background: #198754;
+  color: rgb(255, 255, 255);
+  text-shadow: 0px 3px 4px #ffffff73;
+}
+
+.btn_achat_gpay {
+  background: #198754;
+  color: rgb(255, 255, 255);
+  text-shadow: 0px 3px 4px #ffffff73;
+  cursor: url('../../public/cursor/cursor-1.png'), pointer;
+}
+
+.btn_achat_gpay:hover {
   background: #198754;
   color: rgb(255, 255, 255);
   text-shadow: 0px 3px 4px #ffffff73;
@@ -597,7 +613,8 @@ body {
 }
 
 #home #option .row .col:nth-child(1) {
-  margin: 5vw auto;
+  margin: 5vw auto 5vw auto;
+  padding: 0 6vw;
 }
 
 @media all and (max-width: 1500px) {
@@ -608,21 +625,12 @@ body {
 }
 
 #home #option .box {
-  width: 50%;
+  width: 100%;
   padding: 1vw;
   margin: 0 auto;
   box-shadow: 0px 2px 8px 4px #acbfbf87;
   min-height: 426px;
   background: #acbfbf87;
-}
-
-@media all and (max-width: 1500px) {
-  #home #option .box {
-    width: 100%;
-    background: transparent;
-    box-shadow: none;
-    min-height: auto;
-  }
 }
 
 #home #option .box h2 {
@@ -1354,7 +1362,6 @@ textarea {
 @media all and (max-width: 1500px) {
   #home #aide {
     min-height: auto;
-    padding: 6vw;
     width: 100% !important;
   }
 }
@@ -1434,8 +1441,7 @@ textarea {
 }
 
 #home #aide .aide_grid div img {
-  width: 25px;
-  min-height: 75px;
+  width: 30px;
 }
 
 #home #aide .aide_grid div:nth-child(2) img {
@@ -1459,8 +1465,7 @@ textarea {
 }
 
 #home #aide .aide_grid div:nth-child(6) img {
-  height: 35px;
-  width: 25px;
+  width: 35px;
   min-height: auto;
 }
 
@@ -1470,7 +1475,7 @@ textarea {
 }
 
 #home #aide .aide_grid div:nth-child(1) img {
-  transform: rotate(90deg);
+  transform: rotate(0deg);
 }
 
 #home #aide .aide_grid div p {
@@ -3245,4 +3250,9 @@ input[type=radio] {
 
 input[name=code_login] {
   width: 110px !important;
+}
+
+#consumable-purchase {
+  margin: 0 auto;
+  width: 50%;
 }

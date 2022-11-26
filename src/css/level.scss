@@ -267,7 +267,8 @@ td {
 
 .score {
   display: inline-block;
-  background: #0c0c0c26;
+  background: #000000ad;
+  box-shadow: 4px 4px 0px #00000017;
   border: 2px dotted #0c0c0c26;
   color: white;
   padding: 10px 9px;
@@ -279,6 +280,11 @@ td {
   height: 50px;
   line-height: 33px;
   letter-spacing: 0;
+}
+
+.score.level5 {
+  background: #515050ad;
+  box-shadow: 4px 4px 0px #9a969617;
 }
 
 .des_trefle {
@@ -994,27 +1000,6 @@ td {
   background: #000000ad;
   transform: translateY(0);
   text-shadow: 0px 3px 4px #00000073;
-}
-
-.particle_cards {
-  display: none;
-  transition: all 2s;
-}
-
-.particle_cards {
-  background: url('../../public/img/level/particlecard.gif') !important;
-  background-repeat: no-repeat !important;
-  background-position: center !important;
-  z-index: 10 !important;
-  max-width: 100px !important;
-  max-height: 164px !important;
-  height: 188px;
-  border-radius: 4px;
-  top: 58px !important;
-  left: 36px !important;
-  position: relative !important;
-  filter: opacity(0.6);
-  animation: fadeIn 1s linear;
 }
 
 .cards_disabled {

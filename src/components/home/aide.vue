@@ -15,32 +15,10 @@
         </div>
 
         <h3>
-          But du jeu
-        </h3>
-
-        <div id="desc" class="aide_grid">
-
-          <div>
-            <p>
-              Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
-              industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and
-              scrambled it to make a type specimen book.
-            </p>
-          </div>
-
-        </div>
-
-        <h3>
           Les items du jeu
         </h3>
 
         <div class="aide_grid">
-
-          <div>
-            <img src="../../../public/img/level/ladder_small.png" alt="">
-            <p>Echelle</p>
-            <p>Permet de grimper de Case en Case.</p>
-          </div>
 
           <div>
             <img src="../../../public/img/level/potion_1.png" alt="">
@@ -55,7 +33,19 @@
           </div>
 
           <div>
+            <img src="../../../public/img/level/monstre_2.png" alt="">
+            <p style="margin-top: 40px;">Monstre</p>
+            <p>Ce monstre fait descendre de quelque .</p>
+          </div>
+
+          <div>
             <img src="../../../public/img/level/bombe.png" alt="">
+            <p style="margin-top: 40px;">Bombe</p>
+            <p>Une bombe qui fait descendre de quelque Case.</p>
+          </div>
+
+          <div>
+            <img src="../../../public/img/level/bombe_2.png" alt="">
             <p style="margin-top: 40px;">Bombe</p>
             <p>Une bombe qui fait descendre de quelque Case.</p>
           </div>
@@ -64,14 +54,14 @@
             <img src="../../../public/img/level/chest_close.png" alt="">
 
             <p style="margin-top: 40px;">Coffre</p>
-            <p>Un coffre qui permet de gagner 2 lingots.</p>
+            <p>Un coffre qui permet de gagner des lingots, des pièces, des rubis, des bambous.</p>
           </div>
 
           <div>
             <img src="../../../public/img/level/lingo_1.png" alt="">
 
-            <p style="margin-top: 40px;">L'ingot</p>
-            <p>L'ingot en cours de dev.</p>
+            <p style="margin-top: 40px;">Lingot</p>
+            <p>Lingot disponible sur les différentes maps du jeu.</p>
           </div>
 
           <div>
@@ -85,14 +75,14 @@
             <img src="../../../public/img/level/bambou.png" alt="" style="width: 35px;min-height: auto;">
 
             <p style="margin-top: 40px;">Bambou</p>
-            <p>En cours de dev.</p>
+            <p>Bambou disponible sur les différentes maps du jeu.</p>
           </div>
 
           <div>
             <img src="../../../public/img/level/rubis.png" alt="" style="width: 35px;min-height: auto;">
 
             <p style="margin-top: 40px;">Rubis</p>
-            <p>En cours de dev.</p>
+            <p>Rubis disponible sur les différentes maps du jeu.</p>
           </div>
 
         </div>

@@ -37,9 +37,9 @@
             </div>
 
             <div class="mt-3">
-              <label for="soundBruitage" class="form-label">Afficher le HUD</label>
+              <label for="switchHud" class="form-label">Afficher le HUD</label>
               <div class="custom-control custom-switch">
-                <input type="checkbox" class="custom-control-input" :value="hud" id="switchHud">
+                <input type="checkbox" class="custom-control-input" id="switchHud">
                 <label class="custom-control-label" for="switchHud"></label>
               </div>
             </div>
@@ -66,8 +66,7 @@ import { defineComponent } from 'vue'
 import { Cookies } from 'quasar'
 
 var soundBruitage = 1,
-  soundGeneral = 1,
-  hud = 1;
+  soundGeneral = 1;
 
 export default defineComponent({
   name: 'OptionComponent',
@@ -76,7 +75,6 @@ export default defineComponent({
     return {
       soundBruitage: (Cookies.has('soundBruitage')) ? soundBruitage = Cookies.get('soundBruitage') : 1,
       soundGeneral: (Cookies.has('soundGeneral')) ? soundGeneral = Cookies.get('soundGeneral') : 1,
-      hud: (Cookies.has('hud')) ? hud = Cookies.get('hud') : 1
     }
 
   }

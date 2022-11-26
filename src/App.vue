@@ -26,8 +26,8 @@ export default defineComponent({
         return value.replaceAll('"', '');
       },
       params: {
-        appVersion: '1.0.19',
-        appBuild: '10019',
+        appVersion: '1.0.22',
+        appBuild: '10022',
       },
       platform: $q.platform.is,
     }
