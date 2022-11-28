@@ -41,6 +41,8 @@
             alt=""><span>Lingot</span></div>
         <div class="item" data-name="item_coin"><img src="../../../public/img/level/coin.png" alt=""><span>Pièce
             d'or</span></div>
+        <div class="item" data-name="item_rubis"><img src="../../../public/img/level/rubis.png"
+            alt=""><span>Rubis</span></div>
       </div>
 
       <div class="grid_shop hide_shop no_grid fadeIn">

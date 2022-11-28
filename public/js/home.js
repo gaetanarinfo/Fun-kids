@@ -522,13 +522,20 @@ setTimeout(() => {
 
     var url = "https://funkids.site/ajax/ajax-loginGame.php";
 
+    var sendCode = 'true';
+
+    if (localStorage.getItem("code") != null) {
+      sendCode = 'false';
+    }
+
     $.ajax({
       url: url,
       type: "POST",
       data: {
         pseudo_login: $('input[name=pseudo_login]').val(),
         password_login: $('input[name=password_login]').val(),
-        code_mail: $('input[name=code_login]').val()
+        code_mail: $('input[name=code_login]').val(),
+        sendCode: sendCode
       },
       success: function (data) {
 
@@ -537,14 +544,24 @@ setTimeout(() => {
 
         if (res.login === true) {
 
-          setTimeout(() => {
+          if (localStorage.getItem("code") != null) {
 
-            $('#login_game .form').hide('loading');
-            $('#login_game .lds-ring').hide();
-            $("#connexion_game .verification input").prop("disabled", false);
-            $('#login_game .verification').show();
+            sessionStorage.setItem("user_id", res.user_id);
+            localStorage.setItem("user_id", res.user_id);
 
-          }, 1500);
+            location.href = '#/level';
+            location.reload();
+
+          } else {
+            setTimeout(() => {
+
+              $('#login_game .form').hide('loading');
+              $('#login_game .lds-ring').hide();
+              $("#connexion_game .verification input").prop("disabled", false);
+              $('#login_game .verification').show();
+
+            }, 1500);
+          }
 
         }
 
@@ -586,7 +603,7 @@ setTimeout(() => {
 
   $(document).on('keyup', '#login_game .verification input', function (e) {
 
-    var input = $(this);
+    var input = $(this).val();
 
     if ($(this).val().length > 5 && $(this).val().length < 7) {
 
@@ -609,6 +626,8 @@ setTimeout(() => {
 
             sessionStorage.setItem("user_id", res.user_id);
             localStorage.setItem("user_id", res.user_id);
+            sessionStorage.setItem("code", input);
+            localStorage.setItem("code", input);
 
             location.href = '#/level';
             location.reload();
@@ -869,7 +888,7 @@ setTimeout(() => {
 
       $('.gPayScreen').fadeIn(300);
 
-      gPay(item_name, item_id, item_price);
+      gPay(item_name, item_id, item_price, item_image);
 
     })
 
@@ -891,13 +910,18 @@ setTimeout(() => {
     onDeviceReady()
   });
 
-  function gPay(item_name, item_id, item_price) {
+  var image_item = "";
+  var init = false
+
+  function gPay(item_name, item_id, item_price, item_image) {
 
     $('.gPayScreen .header').show();
     $('.gPayScreen .d_back_items').show();
 
-    document.addEventListener('deviceready', initStore(item_name, item_id));
-    document.addEventListener('deviceready', refreshGoldCoinsUI(item_name, item_price));
+    image_item = item_image;
+
+    if (!init) document.addEventListener('deviceready', initStore(item_name, item_id));
+    document.addEventListener('deviceready', refreshGoldCoinsUI(item_name, item_price, item_image));
 
   }
 
@@ -936,15 +960,15 @@ setTimeout(() => {
     store.refresh();
   }
 
-  function refreshGoldCoinsUI(item_name, item_price) {
-    $('.gPayScreen .header').html('<div class="item_shop"><img src="https://funkids.site/assets/img/level/chest_open.png" /><p>' + item_name + ' - <span class="price">' + item_price + '</span></p></div>');
+  function refreshGoldCoinsUI(item_name, item_price, item_image) {
+    $('.gPayScreen .header').html('<div class="item_shop"><img src="https://funkids.site/assets/img/level/' + item_image + '.png" /><p>' + item_name + ' - <span class="price">' + item_price + '</span></p></div>');
   }
 
   function refreshProductUI(product) {
 
     $('.gerror').html(product);
 
-    $('.gPayScreen .header').html('<div class="item_shop"><img src="https://funkids.site/assets/img/level/chest_open.png" /><p>' + product.title + ' - <span class="price">' + product.price + '</span></p></div>');
+    $('.gPayScreen .header').html('<div class="item_shop"><img src="https://funkids.site/assets/img/level/' + image_item + '.png" /><p>' + product.title + ' - <span class="price">' + product.price + '</span></p></div>');
 
     const button = product.canPurchase ? '<a class="btn_achat_gpay" data-name="' + name_item + '" id="purchaseConsumable">Acheter !</a>' : '';
 
@@ -977,12 +1001,12 @@ setTimeout(() => {
       success: function (data) {
         $('.gerror').html(p);
 
+        $('#purchaseConsumable').hide();
         $('.gPayScreen .header').hide();
         $('.gPayScreen .d_back_items').hide();
         $('.gPayScreen .after_paiement img').attr('src', 'https://funkids.site/assets/img/check.png');
         $('.gPayScreen .after_paiement h2').html('Ton paiement est accepté.');
         $('.gPayScreen .after_paiement p').html('Ton compte a été crédité de <span class="credit"></span>.<br/><br/>');
-        $('.gPayScreen .after_paiement p').append('Tu as reçu un email de récapitulatif de ta commande.');
 
         $('.gPayScreen .after_paiement .credit').html(name_item);
 
@@ -990,12 +1014,16 @@ setTimeout(() => {
           $(".gPayScreen .after_paiement").show();
         }, 200);
 
-        p.finish();
-        refreshGoldCoinsUI();
+        setTimeout(() => {
+          location.reload();
+        }, 10500);
+
       }
 
     });
 
+    p.finish();
+    refreshGoldCoinsUI();
   }
 
   function cardPay(item, item_name, item_price, item_price_amount, pseudo, item_image) {
@@ -1344,6 +1372,8 @@ setTimeout(() => {
     $('.paypalScreen').hide();
     $('#consumable-purchase').html('');
     name_item = "";
+    image_item = "";
+    id_item = "";
     $('.header').hide();
     $('.d_back_items').hide();
     $('.after_paiement').hide();
@@ -1351,6 +1381,10 @@ setTimeout(() => {
     $('.grid_sorter').show();
     $('#home #contact').hide();
     $('#home #bug').hide();
+
+    $('html, body').animate({
+      scrollTop: $("html").offset().top
+    }, "slow");
 
   })
 
@@ -1366,11 +1400,17 @@ setTimeout(() => {
     $('.paypalScreen').hide();
     $('#consumable-purchase').html('');
     name_item = "";
+    image_item = "";
+    id_item = "";
     $('.header').hide();
     $('.d_back_items').hide();
     $('.after_paiement').hide();
     $('.grid_shop').show();
     $('.grid_sorter').show();
+
+    $('html, body').animate({
+      scrollTop: $("html").offset().top
+    }, "slow");
 
   });
 
@@ -1384,13 +1424,20 @@ setTimeout(() => {
 
     if (name == "item_ingot") {
       $('.shop .grid_shop .item_ingot').show();
+      $('.shop .grid_shop .item_rubis').hide();
       $('.shop .grid_shop .item_coin').hide();
     } else if (name == "item_coin") {
       $('.shop .grid_shop .item_coin').show();
       $('.shop .grid_shop .item_ingot').hide();
+      $('.shop .grid_shop .item_rubis').hide();
+    } else if (name == "item_rubis") {
+      $('.shop .grid_shop .item_rubis').show();
+      $('.shop .grid_shop .item_ingot').hide();
+      $('.shop .grid_shop .item_coin').hide();
     } else if (name == "all") {
       $('.shop .grid_shop .item_coin').show();
       $('.shop .grid_shop .item_ingot').show();
+      $('.shop .grid_shop .item_rubis').show();
     }
 
   })
