@@ -135,7 +135,6 @@ $(document).on('click', '#chest_btn_open', function (e) {
 
   // Pour chaque level la récompense augmente
   if (level == 1) {
-    console.log(level);
     ingot = Math.floor(1 + Math.random() * 2);
     coin = Math.floor(1 + Math.random() * 2);
     bambou = Math.floor(1 + Math.random() * 2);
@@ -166,6 +165,11 @@ $(document).on('click', '#chest_btn_open', function (e) {
     coin = Math.floor(1 + Math.random() * 4.5);
     bambou = Math.floor(1 + Math.random() * 4.5);
     rubis = Math.floor(1 + Math.random() * 4.5);
+  } else if (level == 7) {
+    ingot = Math.floor(1 + Math.random() * 5);
+    coin = Math.floor(1 + Math.random() * 5);
+    bambou = Math.floor(1 + Math.random() * 5);
+    rubis = Math.floor(1 + Math.random() * 5);
   }
 
   $('.grid_bonus .item_ingot span').html(ingot);
@@ -274,6 +278,7 @@ $(document).on('click', '#chest_btn_open', function (e) {
 
       }
     });
+
   }, 1600);
 
 });

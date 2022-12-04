@@ -1,7 +1,7 @@
 {
   "name": "org.funkids.app",
   "displayName": "Funkids",
-  "version": "1.0.26",
+  "version": "1.0.27",
   "description": "A sample Apache Cordova application that responds to the deviceready event.",
   "main": "index.js",
   "scripts": {
