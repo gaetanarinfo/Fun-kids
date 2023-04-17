@@ -27,7 +27,7 @@
 
         </div>
 
-        <iframe src="https://funkids.site/documents/CGV.pdf" width="100%" style="min-height: 800px;border: 0;"></iframe>
+        <iframe src="http://31.33.145.219:45652/documents/CGV.pdf" width="100%" style="min-height: 800px;border: 0;"></iframe>
 
         <div class="mt-4">
           <q-item id="btn_exit_cgv" to="/"

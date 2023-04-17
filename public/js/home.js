@@ -20,7 +20,7 @@ setTimeout(() => {
   setInterval(() => {
 
     $.ajax({
-      url: 'https://funkids.site/ajax/ajax-showUserOnline.php',
+      url: 'http://31.33.145.219:45652/ajax/ajax-showUserOnline.php',
       success: function (data) {
 
         $('.numberPlayer').html(data)
@@ -31,7 +31,7 @@ setTimeout(() => {
   }, 1000);
 
   $.ajax({
-    url: 'https://funkids.site/ajax/ajax-showUserRegister.php',
+    url: 'http://31.33.145.219:45652/ajax/ajax-showUserRegister.php',
     success: function (data) {
 
       $('#userRegisterPlayer').html(data)
@@ -40,7 +40,7 @@ setTimeout(() => {
   })
 
   $.ajax({
-    url: 'https://funkids.site/ajax/ajax-selectColor.php',
+    url: 'http://31.33.145.219:45652/ajax/ajax-selectColor.php',
     success: function (data) {
 
       $('#color').html(data)
@@ -49,7 +49,7 @@ setTimeout(() => {
   })
 
   $.ajax({
-    url: 'https://funkids.site/ajax/ajax-showClassement.php',
+    url: 'http://31.33.145.219:45652/ajax/ajax-showClassement.php',
     success: function (data) {
 
       $('#showClassement').html(data)
@@ -334,7 +334,7 @@ setTimeout(() => {
 
     e.preventDefault();
 
-    var url = "https://funkids.site/ajax/ajax-requestBug.php",
+    var url = "http://31.33.145.219:45652/ajax/ajax-requestBug.php",
       formData = $("#form_bug").serialize();
 
     $('#btn_request_bug').attr('disabled', '');
@@ -424,7 +424,7 @@ setTimeout(() => {
 
     playAudioClic();
 
-    var url = "https://funkids.site/ajax/ajax-newGame.php",
+    var url = "http://31.33.145.219:45652/ajax/ajax-newGame.php",
       formData = $("#form_new_game").serialize();
 
     $('#btn_new_game').attr('disabled', '');
@@ -520,7 +520,7 @@ setTimeout(() => {
       scrollTop: $("html").offset().top
     }, "slow");
 
-    var url = "https://funkids.site/ajax/ajax-loginGame.php";
+    var url = "http://31.33.145.219:45652/ajax/ajax-loginGame.php";
 
     var sendCode = 'true';
 
@@ -607,7 +607,7 @@ setTimeout(() => {
 
     if ($(this).val().length > 5 && $(this).val().length < 7) {
 
-      var url2 = "https://funkids.site/ajax/ajax-verifLogin.php";
+      var url2 = "http://31.33.145.219:45652/ajax/ajax-verifLogin.php";
 
       $.ajax({
         url: url2,
@@ -741,7 +741,7 @@ setTimeout(() => {
 
     $('.grid_shop').addClass('no_grid');
     $.ajax({
-      url: 'https://funkids.site/ajax/ajax-showShop.php',
+      url: 'http://31.33.145.219:45652/ajax/ajax-showShop.php',
       success: function (data) {
         setTimeout(() => {
           $('.grid_shop').html(data)
@@ -768,7 +768,7 @@ setTimeout(() => {
 
     $('.grid_shop').addClass('no_grid');
     $.ajax({
-      url: 'https://funkids.site/ajax/ajax-showShop.php',
+      url: 'http://31.33.145.219:45652/ajax/ajax-showShop.php',
       success: function (data) {
         setTimeout(() => {
           $('.grid_shop').html(data)
@@ -798,7 +798,7 @@ setTimeout(() => {
     } else {
 
       $.ajax({
-        url: "https://funkids.site/ajax/ajax-verifPseudo.php",
+        url: "http://31.33.145.219:45652/ajax/ajax-verifPseudo.php",
         method: 'POST',
         data: {
           pseudo: pseudo,
@@ -961,14 +961,14 @@ setTimeout(() => {
   }
 
   function refreshGoldCoinsUI(item_name, item_price, item_image) {
-    $('.gPayScreen .header').html('<div class="item_shop"><img src="https://funkids.site/assets/img/level/' + item_image + '.png" /><p>' + item_name + ' - <span class="price">' + item_price + '</span></p></div>');
+    $('.gPayScreen .header').html('<div class="item_shop"><img src="http://31.33.145.219:45652/assets/img/level/' + item_image + '.png" /><p>' + item_name + ' - <span class="price">' + item_price + '</span></p></div>');
   }
 
   function refreshProductUI(product) {
 
     $('.gerror').html(product);
 
-    $('.gPayScreen .header').html('<div class="item_shop"><img src="https://funkids.site/assets/img/level/' + image_item + '.png" /><p>' + product.title + ' - <span class="price">' + product.price + '</span></p></div>');
+    $('.gPayScreen .header').html('<div class="item_shop"><img src="http://31.33.145.219:45652/assets/img/level/' + image_item + '.png" /><p>' + product.title + ' - <span class="price">' + product.price + '</span></p></div>');
 
     const button = product.canPurchase ? '<a class="btn_achat_gpay" data-name="' + name_item + '" id="purchaseConsumable">Acheter !</a>' : '';
 
@@ -991,7 +991,7 @@ setTimeout(() => {
   function finishPurchase(p) {
 
     $.ajax({
-      url: "https://funkids.site/ajax/ajax-paiementGpaySuccessful.php",
+      url: "http://31.33.145.219:45652/ajax/ajax-paiementGpaySuccessful.php",
       method: 'POST',
       data: {
         pseudo: $('input[name=pseudo_shop_login]').val(),
@@ -1004,7 +1004,7 @@ setTimeout(() => {
         $('#purchaseConsumable').hide();
         $('.gPayScreen .header').hide();
         $('.gPayScreen .d_back_items').hide();
-        $('.gPayScreen .after_paiement img').attr('src', 'https://funkids.site/assets/img/check.png');
+        $('.gPayScreen .after_paiement img').attr('src', 'http://31.33.145.219:45652/assets/img/check.png');
         $('.gPayScreen .after_paiement h2').html('Ton paiement est accepté.');
         $('.gPayScreen .after_paiement p').html('Ton compte a été crédité de <span class="credit"></span>.<br/><br/>');
 
@@ -1035,7 +1035,7 @@ setTimeout(() => {
     $('.grid_shop').hide();
     $('.grid_sorter').hide();
 
-    $('.pay .header').html('<div class="item_shop"><img src="https://funkids.site/assets/img/level/' + item_image + '.png" /><p>' + item_name + ' - <span class="price">' + item_price + '</span></p></div>');
+    $('.pay .header').html('<div class="item_shop"><img src="http://31.33.145.219:45652/assets/img/level/' + item_image + '.png" /><p>' + item_name + ' - <span class="price">' + item_price + '</span></p></div>');
 
     $('.pay').fadeIn(300);
 
@@ -1067,13 +1067,13 @@ setTimeout(() => {
     // Disable the button until we have Stripe set up on the page
     document.querySelector("#submit_card").disabled = true;
 
-    fetch("https://funkids.site/ajax/ajax-card.php", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json"
-        },
-        body: JSON.stringify(purchase)
-      })
+    fetch("http://31.33.145.219:45652/ajax/ajax-card.php", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(purchase)
+    })
       .then(function (result) {
         return result.json();
       }).catch(function (error) {
@@ -1172,7 +1172,7 @@ setTimeout(() => {
     var orderComplete = function (paymentIntentId, status) {
 
       $.ajax({
-        url: "https://funkids.site/ajax/ajax-paiementSuccessful.php",
+        url: "http://31.33.145.219:45652/ajax/ajax-paiementSuccessful.php",
         method: 'POST',
         data: {
           pseudo: pseudo,
@@ -1188,7 +1188,7 @@ setTimeout(() => {
           $('.pay .stripe').remove();
           $('.pay .header').remove();
 
-          $('.after_paiement img').attr('src', 'https://funkids.site/assets/img/check.png');
+          $('.after_paiement img').attr('src', 'http://31.33.145.219:45652/assets/img/check.png');
           $('.after_paiement h2').html('Ton paiement est accepté.');
           $('.after_paiement p').html('Ton compte a été crédité de <span class="credit"></span>.<br/><br/>');
           $('.after_paiement p').append('Tu as reçu un email de récapitulatif de ta commande.');
@@ -1225,7 +1225,7 @@ setTimeout(() => {
           $('.pay .stripe').remove();
           $('.pay .header').remove();
 
-          $('.after_paiement img').attr('src', 'https://funkids.site/assets/img/cancel.png');
+          $('.after_paiement img').attr('src', 'http://31.33.145.219:45652/assets/img/cancel.png');
           $('.after_paiement h2').html('Ton paiement à été refusée');
           $('.after_paiement p').html('Tu n\'a pas été débité sur ton compte bancaire.');
 
@@ -1244,7 +1244,7 @@ setTimeout(() => {
     var showError2 = function () {
 
       $.ajax({
-        url: "https://funkids.site/ajax/ajax-paiementCanceled.php",
+        url: "http://31.33.145.219:45652/ajax/ajax-paiementCanceled.php",
         method: 'POST',
         data: {
           pseudo: pseudo,
@@ -1260,7 +1260,7 @@ setTimeout(() => {
           $('.pay .stripe').remove();
           $('.pay .header').remove();
 
-          $('.after_paiement img').attr('src', 'https://funkids.site/assets/img/cancel.png');
+          $('.after_paiement img').attr('src', 'http://31.33.145.219:45652/assets/img/cancel.png');
           $('.after_paiement h2').html('Ton paiement à été refusée');
           $('.after_paiement p').html('Tu n\'a pas été débité sur ton compte bancaire.');
 
@@ -1279,7 +1279,7 @@ setTimeout(() => {
     var showError3 = function () {
 
       $.ajax({
-        url: "https://funkids.site/ajax/ajax-paiementError.php",
+        url: "http://31.33.145.219:45652/ajax/ajax-paiementError.php",
         method: 'POST',
         data: {
           pseudo: pseudo,
@@ -1295,7 +1295,7 @@ setTimeout(() => {
           $('.pay .stripe').remove();
           $('.pay .header').remove();
 
-          $('.after_paiement img').attr('src', 'https://funkids.site/assets/img/cancel.png');
+          $('.after_paiement img').attr('src', 'http://31.33.145.219:45652/assets/img/cancel.png');
           $('.after_paiement h2').html('Ton paiement à été refusée');
           $('.after_paiement p').html('Tu n\'a pas été débité sur ton compte bancaire.');
 
@@ -1314,7 +1314,7 @@ setTimeout(() => {
     var showError4 = function () {
 
       $.ajax({
-        url: "https://funkids.site/ajax/ajax-paiementError.php",
+        url: "http://31.33.145.219:45652/ajax/ajax-paiementError.php",
         method: 'POST',
         data: {
           pseudo: pseudo,
@@ -1330,7 +1330,7 @@ setTimeout(() => {
           $('.pay .stripe').remove();
           $('.pay .header').remove();
 
-          $('.after_paiement img').attr('src', 'https://funkids.site/assets/img/cancel.png');
+          $('.after_paiement img').attr('src', 'http://31.33.145.219:45652/assets/img/cancel.png');
           $('.after_paiement h2').html('Ton paiement à été refusée');
           $('.after_paiement p').html('Tu n\'a pas été débité sur ton compte bancaire.');
 
@@ -1487,7 +1487,7 @@ setTimeout(() => {
 
     e.preventDefault();
 
-    var url = "https://funkids.site/ajax/ajax-contact.php",
+    var url = "http://31.33.145.219:45652/ajax/ajax-contact.php",
       formData = $("#form_contact").serialize();
 
     $('#btn_request_bug').attr('disabled', '');

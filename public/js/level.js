@@ -2,12 +2,12 @@ var user_id = sessionStorage.getItem("user_id");
 
 setTimeout(() => {
   $.ajax({
-    url: 'https://funkids.site/ajax/ajax-showLevel.php?user_id=' + user_id,
+    url: 'http://31.33.145.219:45652/ajax/ajax-showLevel.php?user_id=' + user_id,
     success: function (data) {
       $('#levels').html(data);
 
       $.ajax({
-        url: 'https://funkids.site/ajax/ajax-showUserRegister.php',
+        url: 'http://31.33.145.219:45652/ajax/ajax-showUserRegister.php',
         success: function (data) {
           $('#userRegisterPlayer').html(data)
         }
@@ -29,14 +29,14 @@ $(document).on('click', '#chest_btn', function (e) {
   playAudioChest();
 
   $.ajax({
-    url: 'https://funkids.site/ajax/ajax-chestbonus.php?user_id=' + user_id,
+    url: 'http://31.33.145.219:45652/ajax/ajax-chestbonus.php?user_id=' + user_id,
     type: 'POST',
     data: {},
     success: function (data) {
 
       var res = JSON.parse(data);
 
-      if (res.chest === true) {}
+      if (res.chest === true) { }
 
       if (res.chest === false) {
 
@@ -179,12 +179,12 @@ $(document).on('click', '#chest_btn_open', function (e) {
 
   setTimeout(() => {
     $(this).find('img').attr('style', 'animation: none');
-    $(this).find('img').attr('src', 'https://funkids.site/assets/img/level/chest_bonus_1.png');
+    $(this).find('img').attr('src', 'http://31.33.145.219:45652/assets/img/level/chest_bonus_1.png');
     $('.grid_bonus').attr('style', 'display: flex;');
     $(this).addClass('disabled');
 
     $.ajax({
-      url: 'https://funkids.site/ajax/ajax-chestbonus.php?user_id=' + user_id,
+      url: 'http://31.33.145.219:45652/ajax/ajax-chestbonus.php?user_id=' + user_id,
       type: 'POST',
       data: {
         ingot: ingot,

@@ -104,7 +104,9 @@
         "REQUIRES_USER_CONSENT": "false"
       },
       "cordova-plugin-play-games-services": {
-        "APP_ID": "724119570320"
+        "APP_ID": "724119570320",
+        "ANDROID_PLAY_SERVICES_GAMES_VERSION": "+",
+        "ANDROID_PLAY_SERVICES_PLUS_VERSION": "+"
       }
     }
   }

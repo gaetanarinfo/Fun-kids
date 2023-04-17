@@ -27,7 +27,7 @@
 
         </div>
 
-        <iframe src="https://funkids.site/documents/Mentions_legales.pdf" width="100%"
+        <iframe src="http://31.33.145.219:45652/documents/Mentions_legales.pdf" width="100%"
           style="min-height: 800px;border: 0;"></iframe>
 
         <div class="mt-4">

@@ -225,7 +225,7 @@ function initPayPalButton(item_amountp, pseudo, item, item_name) {
 
         // Or go to another URL:  actions.redirect('thank_you.html');
         $.ajax({
-          url: "https://funkids.site/ajax/ajax-paiementSuccessful.php",
+          url: "http://31.33.145.219:45652/ajax/ajax-paiementSuccessful.php",
           method: 'POST',
           data: {
             pseudo: pseudo,
@@ -242,7 +242,7 @@ function initPayPalButton(item_amountp, pseudo, item, item_name) {
             $('.paypalScreen .Paypal').remove();
             $('.paypalScreen .header').remove();
 
-            $('.paypalScreen .after_paiement img').attr('src', 'https://funkids.site/assets/img/check.png');
+            $('.paypalScreen .after_paiement img').attr('src', 'http://31.33.145.219:45652/assets/img/check.png');
             $('.paypalScreen .after_paiement h2').html('Ton paiement est accepté.');
             $('.paypalScreen .after_paiement p').html('Ton compte a été crédité de <span class="credit"></span>.<br/><br/>');
             $('.paypalScreen .after_paiement p').append('Tu as reçu un email de récapitulatif de ta commande.');
@@ -263,7 +263,7 @@ function initPayPalButton(item_amountp, pseudo, item, item_name) {
     onError: function (data) {
 
       $.ajax({
-        url: "https://funkids.site/ajax/ajax-paiementCanceled.php",
+        url: "http://31.33.145.219:45652/ajax/ajax-paiementCanceled.php",
         method: 'POST',
         data: {
           pseudo: pseudo,
@@ -281,7 +281,7 @@ function initPayPalButton(item_amountp, pseudo, item, item_name) {
           $('.paypalScreen .stripe').remove();
           $('.paypalScreen .header').remove();
 
-          $('.after_paiement img').attr('src', 'https://funkids.site/assets/img/cancel.png');
+          $('.after_paiement img').attr('src', 'http://31.33.145.219:45652/assets/img/cancel.png');
           $('.after_paiement h2').html('Ton paiement a été refusé');
           $('.after_paiement p').html('Tu n\'as pas été débité sur ton compte bancaire.');
 
@@ -300,7 +300,7 @@ function initPayPalButton(item_amountp, pseudo, item, item_name) {
     onCancel: function (data) {
 
       $.ajax({
-        url: "https://funkids.site/ajax/ajax-paiementCanceled.php",
+        url: "http://31.33.145.219:45652/ajax/ajax-paiementCanceled.php",
         method: 'POST',
         data: {
           pseudo: pseudo,
@@ -318,7 +318,7 @@ function initPayPalButton(item_amountp, pseudo, item, item_name) {
           $('.paypalScreen .stripe').remove();
           $('.paypalScreen .header').remove();
 
-          $('.after_paiement img').attr('src', 'https://funkids.site/assets/img/cancel.png');
+          $('.after_paiement img').attr('src', 'http://31.33.145.219:45652/assets/img/cancel.png');
           $('.after_paiement h2').html('Ton paiement a été refusé');
           $('.after_paiement p').html('Tu n\'as pas été débité sur ton compte bancaire.');
 
@@ -364,7 +364,7 @@ $(document).on('click', '.btn_shop_item', function (e) {
 
     $('.footer_grid_shop').hide();
 
-    $('.paypalScreen .header').html('<div class="item_shop"><img src="https://funkids.site/assets/img/level/' + item_image + '.png" /><p>' + item_name + ' - <span class="price">' + item_price + '</span></p></div>');
+    $('.paypalScreen .header').html('<div class="item_shop"><img src="http://31.33.145.219:45652/assets/img/level/' + item_image + '.png" /><p>' + item_name + ' - <span class="price">' + item_price + '</span></p></div>');
 
     $('.paypalScreen').fadeIn(300);
 
