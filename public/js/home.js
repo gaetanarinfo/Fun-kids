@@ -520,131 +520,38 @@ setTimeout(() => {
       scrollTop: $("html").offset().top
     }, "slow");
 
-    var url = "http://31.33.145.219:45652/ajax/ajax-loginGame.php";
 
-    var sendCode = 'true';
-
-    if (localStorage.getItem("code") != null) {
-      sendCode = 'false';
-    }
+    var url2 = "http://31.33.145.219:45652/ajax/ajax-verifLogin.php";
 
     $.ajax({
-      url: url,
+      url: url2,
       type: "POST",
       data: {
-        pseudo_login: $('input[name=pseudo_login]').val(),
-        password_login: $('input[name=password_login]').val(),
-        code_mail: $('input[name=code_login]').val(),
-        sendCode: sendCode
+        pseudo_login: $('input[name=pseudo_login]').val()
       },
       success: function (data) {
-
 
         var res = JSON.parse(data);
 
         if (res.login === true) {
 
-          if (localStorage.getItem("code") != null) {
+          sessionStorage.setItem("user_id", res.user_id);
+          localStorage.setItem("user_id", res.user_id);
 
-            sessionStorage.setItem("user_id", res.user_id);
-            localStorage.setItem("user_id", res.user_id);
-
-            location.href = '#/level';
-            location.reload();
-
-          } else {
-            setTimeout(() => {
-
-              $('#login_game .form').hide('loading');
-              $('#login_game .lds-ring').hide();
-              $("#connexion_game .verification input").prop("disabled", false);
-              $('#login_game .verification').show();
-
-            }, 1500);
-          }
+          location.href = '#/level';
+          location.reload();
 
         }
 
         if (res.login === false) {
-
-          $('html, body').animate({
-            scrollTop: $("html").offset().top
-          }, "slow");
-
-          setTimeout(() => {
-            $('.lds-ring').hide();
-            $('#login_game .message_success img').attr('src', res.icone);
-            $('#login_game .message_success h3').attr('class', res.color);
-            $('#login_game .message_success h3').html(res.title);
-            $('#login_game .message_success p').html(res.message);
-            $('#login_game .message_success').show();
-          }, 700);
-
-          setTimeout(() => {
-            $("#connexion_game :input").prop("disabled", false);
-            $('#login_game .lds-ring').hide();
-            $('#login_game .form').removeClass('loading');
-            $('#login_game .message_success').hide();
-            $("#login_game .box").removeAttr('style');
-            $('#login_game .body').removeAttr('style');
-            $('#login_game .footer').show();
-          }, 2100);
-
-
+          $('input[name=code_login]').attr('style', 'width: 110px !important;border: 2px dashed red !important;');
         }
 
-      },
-      error: function (err) {
-        console.log("Error: ", err);
       }
+
     })
 
   }
-
-  $(document).on('keyup', '#login_game .verification input', function (e) {
-
-    var input = $(this).val();
-
-    if ($(this).val().length > 5 && $(this).val().length < 7) {
-
-      var url2 = "http://31.33.145.219:45652/ajax/ajax-verifLogin.php";
-
-      $.ajax({
-        url: url2,
-        type: "POST",
-        data: {
-          pseudo_login: $('input[name=pseudo_login]').val(),
-          code_mail: $('input[name=code_login]').val()
-        },
-        success: function (data) {
-
-          var res = JSON.parse(data);
-
-          if (res.login === true) {
-
-            $('input[name=code_login]').removeAttr('style');
-
-            sessionStorage.setItem("user_id", res.user_id);
-            localStorage.setItem("user_id", res.user_id);
-            sessionStorage.setItem("code", input);
-            localStorage.setItem("code", input);
-
-            location.href = '#/level';
-            location.reload();
-
-          }
-
-          if (res.login === false) {
-            $('input[name=code_login]').attr('style', 'width: 110px !important;border: 2px dashed red !important;');
-          }
-
-        }
-
-      })
-
-    }
-
-  })
 
   $(document).on('click', '#quit_new_game', function (e) {
 

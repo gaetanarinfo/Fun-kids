@@ -1,5 +1,4 @@
 <template>
-
   <div class="container copyright w-100">
     <div class="row m-auto w-70">
       <div id="donate-button-container">
@@ -33,7 +32,7 @@
       </p>
       <hr class="m-auto mt-3 mb-3 w-50">
       <p class="m-0 p-0">Version {{ replaceGuillemet(params.appVersion) }} - <span style="text-transform:capitalize;">{{
-          platform.platform
+        platform.platform
       }} - Build {{ params.appBuild }}</span>
       </p>
       <hr class="m-auto mt-3 mb-3 w-50">
@@ -43,7 +42,6 @@
       </p>
     </div>
   </div>
-
 </template>
 
 <script>
@@ -65,7 +63,7 @@ export default defineComponent({
         return value.replaceAll('"', '');
       },
       params: {
-        appVersion: '1.0.27',
+        appVersion: '1.0.29',
         appBuild: '10027',
       },
       platform: $q.platform.is,

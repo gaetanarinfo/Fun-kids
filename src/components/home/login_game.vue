@@ -47,12 +47,6 @@
                   </div>
                 </div>
 
-                <div class="verification">
-                  <label for="code_login" class="form-label">Code reçu par email</label>
-                  <input type="number" style="width: 100px;" maxlength="6" min="1" max="6" class="form-control"
-                    name="code_login">
-                </div>
-
               </div>
 
               <div class="footer">

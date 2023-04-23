@@ -1,11 +1,9 @@
 <template>
-
   <div class="div">
     <div class="game_v">Version {{ replaceGuillemet(params.appVersion) }} - Build {{ params.appBuild }}</div>
   </div>
 
   <router-view />
-
 </template>
 
 <script>
@@ -26,7 +24,7 @@ export default defineComponent({
         return value.replaceAll('"', '');
       },
       params: {
-        appVersion: '1.0.27',
+        appVersion: '1.0.29',
         appBuild: '10027',
       },
       platform: $q.platform.is,
